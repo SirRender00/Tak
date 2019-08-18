@@ -1,4 +1,4 @@
-package base.board;
+package base;
 
 public class Stone {
 
