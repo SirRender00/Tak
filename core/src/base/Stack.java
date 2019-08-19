@@ -5,8 +5,9 @@ import java.util.Vector;
 import java.util.EmptyStackException;
 
 /**
- * The stack is a collection of stones. Adds a sentinel stone at
- * the start of type FLAT, owned by player -1.
+ * The stack is a collection of {@link Stone} objects.
+ * Every stack is initialized with sentinel stone at the
+ * start of type FLAT, owned by player -1.
  */
 public class Stack extends Vector<Stone> {
 
@@ -16,7 +17,7 @@ public class Stack extends Vector<Stone> {
      */
     public Stack(int initialCapacity) {
         super(initialCapacity);
-        addElement(new Stone(-1, Stone.Type.FLAT));
+        addElement(new Stone(-1, Stone.Type.NONE));
     }
 
     /**
@@ -88,7 +89,7 @@ public class Stack extends Vector<Stone> {
     public class StoneIterator implements Iterator<Stone> {
         int n;
 
-        public StoneIterator(int n) {
+        StoneIterator(int n) {
             this.n = n;
         }
 

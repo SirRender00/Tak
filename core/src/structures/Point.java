@@ -1,5 +1,8 @@
 package structures;
 
+/**
+ * It's a point why are you looking at the javadocs for this
+ */
 public class Point {
 
     public int x;

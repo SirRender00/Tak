@@ -21,12 +21,12 @@ public class GameTree {
         childrenGenerator = new ChildIterator(MoveFactory.allPossibleMoves(tak));
     }
 
-    public int getFavorsWhite() {
-        return favorsWhite;
+    public double getPercentFavorsWhite() {
+        return ( (double) favorsWhite) / timesVisited;
     }
 
-    public int getFavorsBlack() {
-        return timesVisited - favorsWhite;
+    public double getPercentFavorsBlack() {
+        return 1 - getPercentFavorsWhite();
     }
 
     public void releaseResources() {
@@ -61,7 +61,9 @@ public class GameTree {
             Tak nextTak = new Tak(tak);
             nextTak.executeMove(moveIterator.next());
             GameTree tree = new GameTree(nextTak);
+
             children.add(tree);
+
             return tree;
         }
     }

@@ -14,7 +14,7 @@ import java.util.Arrays;
  * We keep track of who owns what square with the vertices array
  * (i.e. vertices[i] = 0 if player 0 owns it, = 1 if player 1 owns it,
  * and = -1 if no one owns it or it is a standing stone). We also create
- * four virtual nodes TOP, BOTTOM, LEFT, RIGHT, whose neighbors are
+ * four {@link VirtualNode} objects TOP, BOTTOM, LEFT, RIGHT, whose neighbors are
  * all TOP vertices, all BOTTOM vertices, etc. To prevent "backwash"
  * (say, that TOP and RIGHT are connected via two corners and BOTTOM),
  * TOP and LEFT have directed edges <em>to</em> the board and
@@ -199,7 +199,7 @@ public class RoadGraph {
     }
 
     /**
-     * We also create four virtual nodes TOP, BOTTOM, LEFT, RIGHT, whose
+     * We also create four {@link VirtualNode} objects TOP, BOTTOM, LEFT, RIGHT, whose
      * neighbors are all TOP vertices, all BOTTOM vertices, etc. To prevent
      * "backwash"(say, that TOP and RIGHT are connected via two corners and
      * BOTTOM), TOP and LEFT have directed edges <em>to</em> the board and
@@ -225,7 +225,7 @@ public class RoadGraph {
         return result;
     }
 
-    public static class VirtualNode {
+    private static class VirtualNode {
 
         int value;
 

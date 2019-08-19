@@ -4,9 +4,8 @@ import base.Tak;
 
 /**
  * Represents an abstract move in the game. Subclassed by PlaceMove
- * and StackMove. To execute on a tak instance, call <code>Tak.safeExecuteMove(this)</code>
- * or <code>Tak.executeMove(this)</code>.
- *
+ * and StackMove. To execute on a {@link Tak} instance, call {@code Tak.safeExecuteMove(this)}
+ * or {@code Tak.executeMove(this)} to remove checks.
  */
 public abstract class Move {
 
@@ -27,8 +26,8 @@ public abstract class Move {
      * <em>without</em> checking for validity. <br><br>
      *
      * The proper way to execute this move is to call <code>Tak.safeExecuteMove(this)</code>
-     * or <code>Tak.executeMove(this)</code>
-     * @param tak The tak instance to execute this move on
+     * or <code>Tak.executeMove(this)</code> to remove checks.
+     * @param tak The {@link Tak} instance to execute this move on
      */
     public abstract void action(Tak tak);
 }

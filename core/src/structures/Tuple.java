@@ -1,5 +1,8 @@
 package structures;
 
+/**
+ * I love java because I have to make classes like this.
+ */
 public class Tuple<K, V> {
 
     public K one;

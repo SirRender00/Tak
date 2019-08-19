@@ -4,7 +4,7 @@ import base.Stone;
 import base.Tak;
 
 /**
- * Places a stone of specified type, belonging to the specified player
+ * Places a {@link Stone} of specified type, belonging to the specified player
  * at the specified point.
  */
 public class PlaceMove extends Move {

@@ -4,6 +4,20 @@ import base.move.Move;
 import base.move.PlaceMove;
 import base.move.StackMove;
 
+/**
+ * The main class that represents a full Tak game. Instantiate this
+ * class with a {@link GameType} which is designated by board size
+ * (default is five by five). The game progresses by passing in a {@link Move}
+ * to {@code Tak.executeSafeMove(...)} (or {@code Tak.executeMove(...)} to
+ * turn off validity checks). Once the game has reached an end condition,
+ * (as specified by the rules http://cheapass.com/wp-content/uploads/2016/07/Tak-Beta-Rules.pdf),
+ * {@code getResult()} will return the corresponding {@link GameResult}. <br> <br>
+ *
+ * The class represents the Tak board as a 2D array of {@link Stack} objects and keeps track
+ * of the players with a 2-element array of {@link Player} objects. An invariant that must
+ * be kept among different classes is that the index of the player is the player number.
+ * (White is player 0, Black is player 1.)
+ */
 public class Tak {
 
     private GameType gameType;
@@ -15,6 +29,10 @@ public class Tak {
 
     private RoadGraph roadGraph;
 
+    /**
+     * @param type The GameType that specifies the board size
+     *             and player stone amounts.
+     */
     public Tak(GameType type) {
         this.gameType = type;
 
@@ -31,6 +49,10 @@ public class Tak {
         roadGraph = new RoadGraph(gameType.size);
     }
 
+    /**
+     * Creates a deep copy of a Tak object.
+     * @param other The Tak object to copy.
+     */
     public Tak(Tak other) {
         gameType = other.gameType;
 
@@ -50,14 +72,33 @@ public class Tak {
         result = other.result;
     }
 
+    /**
+     * @param x The x coord
+     * @param y The y coord
+     * @return The stack at the point
+     *
+     * @throws IndexOutOfBoundsException If x or y is out of bounds
+     */
     public Stack getStackAt(int x, int y) {
+        if (!inBounds(x) || !inBounds(y)) {
+            throw new IndexOutOfBoundsException(x + " or " + y + " is out of bounds.");
+        }
+
         return board[x][y];
     }
 
+    /**
+     * @return The player index whose turn it is.
+     */
     public int getCurrentPlayer() {
         return currentPlayer;
     }
 
+    /**
+     * @return The player who "owns" the move being played.
+     * (Read on the rules of Tak about the first moves the
+     * of game being played differently.)
+     */
     public int getStonePlayer() {
         if (firstMove) {
             return 1 - currentPlayer;
@@ -66,19 +107,34 @@ public class Tak {
         }
     }
 
+    /**
+     * @return The current {@link RoadGraph} representation
+     * of the game.
+     */
     public RoadGraph getRoadGraph() {
         return roadGraph;
     }
 
+    /**
+     * @return {@code true} if and only if the game has ended
+     * (Either white wins, black wins, or a tie), {@code false}
+     * if the game is ongoing.
+     */
     public boolean isGameOver() {
         return !result.equals(GameResult.ONGOING);
     }
 
+    /**
+     * @return The {@code GameResult} corresponding to white winning,
+     * black winning, tie game, or the game is still ongoing.
+     */
     public GameResult getGameResult() {
         return result;
     }
 
     /**
+     * Checks first if the move is valid before trying to execute the move.
+     * Recommended if there is any uncertainty that the move may be invalid.
      * @param move The move to execute
      * @throws TakException If the given move is invalid
      */
@@ -134,10 +190,22 @@ public class Tak {
         return -1;
     }
 
+    /**
+     * @param player The player to check the road win for
+     * @return {@code true} if and only if {@code player} has won by a road
+     * connection, {@code false} otherwise.
+     */
     private boolean isRoadWin(int player) {
         return isRoadWinG(player);
     }
 
+    /**
+     * Implementation of road win by means of a graph, and DFS.
+     *
+     * @param player The player to check the road win for
+     * @return {@code true} if and only if {@code player} has won by a road
+     * connection, {@code false} otherwise.
+     */
     private boolean isRoadWinG(int player) {
         return roadGraph.isTopToBottom(player) || roadGraph.isLeftToRight(player);
     }
@@ -197,6 +265,10 @@ public class Tak {
         }
     }
 
+    /**
+     * @param n The variable to check
+     * @return {@code true} if and only if {@code 0 <= n < board size}.
+     */
     private boolean inBounds(int n) {
         return n >= 0 && n < gameType.size;
     }
@@ -216,7 +288,7 @@ public class Tak {
     }
 
     private boolean validateStackMove(StackMove move) {
-        //pickup amount must be less than or equal to the amount of stones at the point
+        // pickup amount must be less than or equal to the amount of stones at the point
         if (getStackAt(move.x, move.y).size() > move.pickup) {
             return false;
         }
@@ -229,12 +301,12 @@ public class Tak {
             tempX += move.dir.dx;
             tempY += move.dir.dy;
 
-            //should have enough stones to drop down
+            // should have enough stones to drop down
             if (remainingStones < 0) {
                 return false;
             }
 
-            //everything except the last move should have a flat stone on top
+            // everything except the last move should have a flat stone on top
             if (!getStackAt(tempX, tempY).peek().type.equals(Stone.Type.FLAT)) {
                 return false;
             }
@@ -243,8 +315,8 @@ public class Tak {
         tempX += move.dir.dx;
         tempY += move.dir.dy;
 
-        //if the last stone is not flat, it better be a standing stone, and the remaining piece
-        //better be a cap stone
+        // if the last stone is not flat, it better be a standing stone, and there
+        // should only be one remaining piece to drop which should be a cap stone
         if (!getStackAt(tempX, tempY).isEmpty() && !getStackAt(tempX, tempY).peek().type.equals(Stone.Type.FLAT)) {
             return getStackAt(tempX, tempY).peek().type.equals(Stone.Type.STANDING)
                     && getStackAt(move.x, move.y).peek().type.equals(Stone.Type.CAP)
@@ -254,31 +326,63 @@ public class Tak {
         return true;
     }
 
+    /**
+     * Prints the road graph representation of the current board
+     * to the console. Used for testing purposes.
+     */
     public void printRoadGraph() {
         roadGraph.print();
     }
 
+    /**
+     * Updates the road graph representation at the point.
+     * Sets ownership to the player if the stone is flat,
+     * otherwise sets the ownership to -1.
+     *
+     * @param x The x coord of the stack
+     * @param y The y coord of the stack
+     */
     public void updateRoadGraph(int x, int y) {
         if (getStackAt(x, y).peek().type.equals(Stone.Type.FLAT)) {
             roadGraph.updateVertex(x, y, getStackAt(x, y).peek().player);
+        } else {
+            roadGraph.updateVertex(x, y, -1);
         }
     }
 
+    /**
+     * Keeps track of the player's "side stone" and cap stone amounts.
+     * (Side stones are stones that can be flat or standing.)
+     */
     private static class Player {
         int sideStones;
         int capStones;
 
+        /**
+         * @param sideStones Side stone amount
+         * @param capStones Cap stone amount
+         */
         Player(int sideStones, int capStones) {
             this.sideStones = sideStones;
             this.capStones = capStones;
         }
 
+        /**
+         * Deep copy of player
+         *
+         * @param player The player to copy
+         */
         Player(Player player) {
             sideStones = player.sideStones;
             capStones = player.capStones;
         }
     }
 
+    /**
+     * A {@code GameType} instantiates a Tak game
+     * by board size, starting side stone amount, and
+     * starting cap stone amounts.
+     */
     public enum GameType {
 
         FIVE(21, 1, 5);
@@ -294,6 +398,11 @@ public class Tak {
         }
     }
 
+    /**
+     * A {@code GameResult} represents a white win, a black win,
+     * an ongoing game, or a tie game. It also includes a message,
+     * and a payoff which is important for notation or training bots.
+     */
     public enum GameResult {
 
         WHITE("White Wins!", 1),
@@ -309,10 +418,19 @@ public class Tak {
             whiteWin = d;
         }
 
+        /**
+         * @return The message associated with this game result.
+         */
         public String getMessage() {
             return message;
         }
 
+        /**
+         * @return The payoff for white. <br>
+         * White wins -> 1 <br>
+         * Black wins -> 0 <br>
+         * Tie/Ongoing -> 1/2
+         */
         public double getWhiteWin() {
             return whiteWin;
         }

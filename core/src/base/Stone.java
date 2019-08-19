@@ -1,8 +1,8 @@
 package base;
 
 /**
- * Core of the Tak game. Stones are owned by players
- * and can be any one of the three types: FLAT, STANDING, or CAP.
+ * Core piece of the Tak game. Stones are owned by players
+ * and can be any one of the three {@link Type}: FLAT, STANDING, or CAP.
  */
 public class Stone {
 
@@ -35,6 +35,6 @@ public class Stone {
     }
 
     public enum Type {
-        FLAT, STANDING, CAP
+        FLAT, STANDING, CAP, NONE
     }
 }

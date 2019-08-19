@@ -8,7 +8,7 @@ import java.util.Iterator;
 
 /**
  * Pick ups a stack of size <code>pickup</code> at specified point, then
- * drops the bottom <code>vals[i]</code> one square at a time in Direction
+ * drops the bottom <code>vals[i]</code> one square at a time in {@link Direction}
  * <code>dir</code>, for i in length vals.
  */
 public class StackMove extends Move {
