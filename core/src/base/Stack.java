@@ -6,59 +6,58 @@ import java.util.EmptyStackException;
 
 /**
  * The stack is a collection of stones. Adds a sentinel stone at
- * the start.
+ * the start of type FLAT, owned by player -1.
  */
 public class Stack extends Vector<Stone> {
 
     /**
-     * Creates an empty Stack with initial capacity.
+     * Creates an "empty" Stack with initial capacity
+     * (as specified by the Vector class).
      */
     public Stack(int initialCapacity) {
         super(initialCapacity);
-        addElement(new Stone(-1, Stone.Type.NONE));
+        addElement(new Stone(-1, Stone.Type.FLAT));
     }
 
     /**
-     * Removes the object at the top of this stack and returns that
-     * object as the value of this function.
-     *
-     * @return  The object at the top of this stack (the last item
-     *          of the {@code Vector} object).
-     * @throws  EmptyStackException  if this stack is empty.
+     * A deep copy of a stack
+     * @param stack The stack to copy
      */
-    public synchronized Stone pop() {
-        Stone obj;
-        int len = size();
-
-        obj = peek();
-        removeElementAt(len - 1);
-
-        return obj;
+    public Stack(Stack stack) {
+        super(stack.capacity());
+        for (Stone stone : stack) {
+            addElement(new Stone(stone));
+        }
     }
 
     /**
-     * Looks at the object at the top of this stack without removing it
-     * from the stack.
+     * Looks at the stone at the top of this stack without removing it.
      *
-     * @return  the object at the top of this stack (the last item
+     * @return  the stone at the top of this stack (the last item
      *          of the {@code Vector} object).
      */
     public synchronized Stone peek() {
-        return elementAt(super.size() - 1);
+        int len = tSize();
+
+        if (len == 0) {
+            throw new EmptyStackException();
+        }
+        return elementAt(len - 1);
     }
 
     /**
      * Tests if this stack is empty.
      *
      * @return  {@code true} if and only if this stack contains
-     *          no items; {@code false} otherwise.
+     *          no player-owned stones; {@code false} otherwise.
      */
     public boolean isEmpty() {
         return size() == 0;
     }
 
     /**
-     * Will always be >= 1
+     * Will always be >= 1 because of the sentinel stone.
+     * Identical to <code>Vector.size()</code>
      * @return The "technical" size of this stack.
      */
     public int tSize() {
@@ -66,7 +65,7 @@ public class Stack extends Vector<Stone> {
     }
 
     /**
-     * @return The number of stones in this stack
+     * @return The number of player-owned stones in this stack
      */
     @Override
     public int size() {

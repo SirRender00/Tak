@@ -10,7 +10,7 @@ public class Tak {
     private Player[] players;
     private Stack[][] board;
     private GameResult result = GameResult.ONGOING;
-    public int currentPlayer = 0;
+    private int currentPlayer = 0;
     private boolean firstMove = true;
 
     private RoadGraph roadGraph;
@@ -31,8 +31,23 @@ public class Tak {
         roadGraph = new RoadGraph(gameType.size);
     }
 
-    public Tak(Tak tak) {
+    public Tak(Tak other) {
+        gameType = other.gameType;
 
+        board = new Stack[gameType.size][gameType.size];
+        for (int i = 0; i < gameType.size; i++) {
+            for (int j = 0; j < gameType.size; j++) {
+                board[i][j] = new Stack(other.board[i][j]);
+            }
+        }
+
+        players = new Player[]{new Player(other.players[0]), new Player(other.players[1])};
+        currentPlayer = other.currentPlayer;
+        firstMove = other.firstMove;
+
+        roadGraph = new RoadGraph(other.roadGraph);
+
+        result = other.result;
     }
 
     public Stack getStackAt(int x, int y) {
@@ -40,6 +55,10 @@ public class Tak {
     }
 
     public int getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public int getStonePlayer() {
         if (firstMove) {
             return 1 - currentPlayer;
         } else {
@@ -119,13 +138,9 @@ public class Tak {
         return isRoadWinG(player);
     }
 
-    //BLOCK 0: NAIVE isRoadWin SOLUTION
-
     private boolean isRoadWinG(int player) {
         return roadGraph.isTopToBottom(player) || roadGraph.isLeftToRight(player);
     }
-
-    //END BLOCK 0
 
     /**
      * @return 0 if player 0 has more flat stones on top,
@@ -194,9 +209,9 @@ public class Tak {
 
         //they also should have sufficient pieces
         if (move.type.equals(Stone.Type.CAP)) {
-            return players[getCurrentPlayer()].capStones > 0;
+            return players[getStonePlayer()].capStones > 0;
         } else {
-            return players[getCurrentPlayer()].sideStones > 0;
+            return players[getStonePlayer()].sideStones > 0;
         }
     }
 
@@ -239,17 +254,28 @@ public class Tak {
         return true;
     }
 
-    public void printRoaGraph() {
+    public void printRoadGraph() {
         roadGraph.print();
+    }
+
+    public void updateRoadGraph(int x, int y) {
+        if (getStackAt(x, y).peek().type.equals(Stone.Type.FLAT)) {
+            roadGraph.updateVertex(x, y, getStackAt(x, y).peek().player);
+        }
     }
 
     private static class Player {
         int sideStones;
         int capStones;
 
-        public Player(int sideStones, int capStones) {
+        Player(int sideStones, int capStones) {
             this.sideStones = sideStones;
             this.capStones = capStones;
+        }
+
+        Player(Player player) {
+            sideStones = player.sideStones;
+            capStones = player.capStones;
         }
     }
 

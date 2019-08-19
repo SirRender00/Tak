@@ -17,6 +17,13 @@ public class StackMove extends Move {
     public int[] vals;
     public int pickup;
 
+    /**
+     * @param x The x coord to pickup stones
+     * @param y The y coord to pickup stones
+     * @param dir The direction to drop stones
+     * @param pickup The amount to pick up
+     * @param vals The amount to drop down at each step, going on for <code>vals.length</code>
+     */
     public StackMove(int x, int y, Direction dir, int pickup, int[] vals) {
         super(x, y);
         this.dir = dir;
@@ -30,19 +37,20 @@ public class StackMove extends Move {
         int transX = x;
         int transY = y;
 
-        for (int i = 0; i < vals.length; i++) {
+        for (int val : vals) {
             transX += dir.dx;
             transY += dir.dy;
 
-            for (int j = 0; j < vals[i]; j++) {
+            for (int j = 0; j < val; j++) {
                 tak.getStackAt(transX, transY).addElement(trans.next());
             }
-            tak.getRoadGraph().updateVertex(transX, transY, tak.getStackAt(transX, transY).peek().player);
+
+            tak.updateRoadGraph(transX, transY);
         }
 
-        tak.getStackAt(transX, transY).peek().type = Stone.Type.FLAT;
+        tak.getStackAt(transX, transY).peek().flatten();
 
         tak.getStackAt(x, y).removeRange(tak.getStackAt(x, y).tSize() - pickup, tak.getStackAt(x, y).tSize());
-        tak.getRoadGraph().updateVertex(x, y, tak.getStackAt(x, y).peek().player);
+        tak.updateRoadGraph(x, y);
     }
 }

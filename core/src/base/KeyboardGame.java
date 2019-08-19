@@ -17,7 +17,7 @@ public class KeyboardGame {
 
                 Move move;
                 try {
-                    move = MoveFactory.parseMove(tak, msg);
+                    move = MoveFactory.parseMove(msg);
                 } catch (Exception e) {
                     System.out.println("Error in parsing move");
                     continue;
@@ -29,7 +29,7 @@ public class KeyboardGame {
                     System.out.println(e.getMessage());
                 }
 
-                tak.printRoaGraph();
+                tak.printRoadGraph();
             }
         }
 

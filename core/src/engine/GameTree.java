@@ -19,7 +19,6 @@ public class GameTree {
     public GameTree(Tak tak) {
         this.tak = tak;
         childrenGenerator = new ChildIterator(MoveFactory.allPossibleMoves(tak));
-        children = new ArrayList<>(20);
     }
 
     public int getFavorsWhite() {
@@ -37,6 +36,7 @@ public class GameTree {
 
     public Iterator<GameTree> getChildren() {
         if (children.isEmpty()) {
+            children = new ArrayList<>(20);
             return childrenGenerator;
         } else {
             return children.iterator();

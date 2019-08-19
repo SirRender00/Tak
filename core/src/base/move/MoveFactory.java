@@ -16,7 +16,7 @@ public class MoveFactory {
         return new StackMove(x, y, dir, pickup, vals);
     }
 
-    public static Move parseMove(Tak tak, String str) {
+    public static Move parseMove(String str) {
         char[] chars = str.toCharArray();
 
         if (Character.isDigit(chars[0])) {
@@ -54,14 +54,7 @@ public class MoveFactory {
     }
 
     public static int charToFile(char c) {
-        switch (c) {
-            case 'a': return 0;
-            case 'b': return 1;
-            case 'c': return 2;
-            case 'd': return 3;
-            case 'e': return 4;
-            default: return -1;
-        }
+        return (int) c - 'a';
     }
 
     public static int charToRow(char c) {
