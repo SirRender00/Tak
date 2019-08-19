@@ -9,8 +9,8 @@ public class Tak {
     private GameType gameType;
     private Player[] players;
     private Stack[][] board;
-    private GameResult result;
-    private int currentPlayer = 0;
+    private GameResult result = GameResult.ONGOING;
+    public int currentPlayer = 0;
     private boolean firstMove = true;
 
     private RoadGraph roadGraph;
@@ -31,12 +31,20 @@ public class Tak {
         roadGraph = new RoadGraph(gameType.size);
     }
 
+    public Tak(Tak tak) {
+
+    }
+
     public Stack getStackAt(int x, int y) {
         return board[x][y];
     }
 
     public int getCurrentPlayer() {
-        return currentPlayer;
+        if (firstMove) {
+            return 1 - currentPlayer;
+        } else {
+            return currentPlayer;
+        }
     }
 
     public RoadGraph getRoadGraph() {
@@ -44,7 +52,7 @@ public class Tak {
     }
 
     public boolean isGameOver() {
-        return result != null;
+        return !result.equals(GameResult.ONGOING);
     }
 
     public GameResult getGameResult() {
@@ -73,7 +81,12 @@ public class Tak {
      * @param move The move to execute
      */
     public void executeMove(Move move) {
-        move.action(this);
+        if (firstMove && currentPlayer == 1) {
+            move.action(this);
+            firstMove = false;
+        } else {
+            move.action(this);
+        }
 
         switch (checkWin()) {
             case -1: currentPlayer = 1 - currentPlayer; break;
@@ -109,7 +122,7 @@ public class Tak {
     //BLOCK 0: NAIVE isRoadWin SOLUTION
 
     private boolean isRoadWinG(int player) {
-        return roadGraph.isTopToBottom() || roadGraph.isLeftToRight();
+        return roadGraph.isTopToBottom(player) || roadGraph.isLeftToRight(player);
     }
 
     //END BLOCK 0
@@ -150,25 +163,16 @@ public class Tak {
      * (not the players turn to play, invalid move), true otherwise
      */
     public boolean validateMove(Move move) {
-        if (move.player != currentPlayer) {
-            return false;
-        }
-
         if (!(inBounds(move.x) && inBounds(move.y))) {
             return false;
         }
 
+        //first move should place a flat stone
         if (firstMove) {
             if (!(move instanceof PlaceMove)
                     || !((PlaceMove) move).type.equals(Stone.Type.FLAT)) {
                 return false;
             }
-
-            if (move.player == 1) {
-                firstMove = false;
-            }
-
-            move.player = 1 - move.player;
         }
 
         if (move instanceof StackMove) {
@@ -190,9 +194,9 @@ public class Tak {
 
         //they also should have sufficient pieces
         if (move.type.equals(Stone.Type.CAP)) {
-            return players[move.player].capStones > 0;
+            return players[getCurrentPlayer()].capStones > 0;
         } else {
-            return players[move.player].sideStones > 0;
+            return players[getCurrentPlayer()].sideStones > 0;
         }
     }
 
@@ -235,6 +239,10 @@ public class Tak {
         return true;
     }
 
+    public void printRoaGraph() {
+        roadGraph.print();
+    }
+
     private static class Player {
         int sideStones;
         int capStones;
@@ -262,18 +270,25 @@ public class Tak {
 
     public enum GameResult {
 
-        WHITE("White Wins!"),
-        BLACK("Black Wins!"),
-        TIE("Game was a tie!");
+        WHITE("White Wins!", 1),
+        BLACK("Black Wins!", 0),
+        ONGOING("The game is ongoing.", 1 / 2),
+        TIE("Game was a tie!", 1 / 2);
 
         String message;
+        double whiteWin;
 
-        GameResult(String str) {
+        GameResult(String str, double d) {
             message = str;
+            whiteWin = d;
         }
 
         public String getMessage() {
             return message;
+        }
+
+        public double getWhiteWin() {
+            return whiteWin;
         }
     }
 

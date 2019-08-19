@@ -4,6 +4,10 @@ import java.util.Iterator;
 import java.util.Vector;
 import java.util.EmptyStackException;
 
+/**
+ * The stack is a collection of stones. Adds a sentinel stone at
+ * the start.
+ */
 public class Stack extends Vector<Stone> {
 
     /**
@@ -11,6 +15,7 @@ public class Stack extends Vector<Stone> {
      */
     public Stack(int initialCapacity) {
         super(initialCapacity);
+        addElement(new Stone(-1, Stone.Type.NONE));
     }
 
     /**
@@ -37,15 +42,9 @@ public class Stack extends Vector<Stone> {
      *
      * @return  the object at the top of this stack (the last item
      *          of the {@code Vector} object).
-     * @throws  EmptyStackException  if this stack is empty.
      */
     public synchronized Stone peek() {
-        int len = size();
-
-        if (len == 0) {
-            throw new EmptyStackException();
-        }
-        return elementAt(len - 1);
+        return elementAt(super.size() - 1);
     }
 
     /**
@@ -54,8 +53,29 @@ public class Stack extends Vector<Stone> {
      * @return  {@code true} if and only if this stack contains
      *          no items; {@code false} otherwise.
      */
-    public boolean empty() {
+    public boolean isEmpty() {
         return size() == 0;
+    }
+
+    /**
+     * Will always be >= 1
+     * @return The "technical" size of this stack.
+     */
+    public int tSize() {
+        return super.size();
+    }
+
+    /**
+     * @return The number of stones in this stack
+     */
+    @Override
+    public int size() {
+        return super.size() - 1;
+    }
+
+    @Override
+    public void removeRange(int fromIndex, int toIndex) {
+        super.removeRange(fromIndex, toIndex);
     }
 
     /**
@@ -63,7 +83,7 @@ public class Stack extends Vector<Stone> {
      * @return An iterator over the last n stones
      */
     public Iterator<Stone> stoneIterator(int n) {
-        return new StoneIterator(size() - n);
+        return new StoneIterator(tSize() - n);
     }
 
     public class StoneIterator implements Iterator<Stone> {
@@ -75,7 +95,7 @@ public class Stack extends Vector<Stone> {
 
         @Override
         public boolean hasNext() {
-            return n < size();
+            return n < tSize();
         }
 
         @Override

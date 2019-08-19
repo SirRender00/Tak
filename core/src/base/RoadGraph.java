@@ -55,15 +55,15 @@ public class RoadGraph {
         vertices[pointToVertex(x, y)] = player;
     }
 
-    public boolean isLeftToRight() {
-        return isConnected(LEFT, RIGHT);
+    public boolean isLeftToRight(int player) {
+        return isConnected(LEFT, RIGHT, player);
     }
 
-    public boolean isTopToBottom() {
-        return isConnected(TOP, BOTTOM);
+    public boolean isTopToBottom(int player) {
+        return isConnected(TOP, BOTTOM, player);
     }
 
-    private boolean isConnected(VirtualNode start, VirtualNode end) {
+    private boolean isConnected(VirtualNode start, VirtualNode end, int player) {
         Queue<Integer> toVisit = new ArrayDeque<>(neighborsOf(start));
         boolean[] visited = new boolean[size * size];
 
@@ -79,13 +79,35 @@ public class RoadGraph {
                 visited[node] = true;
             }
 
-            toVisit.addAll(neighborsOf(node, visited));
+            toVisit.addAll(neighborsOf(node, visited, player));
         }
 
         return false;
     }
 
-    public List<Integer> neighborsOf(int n, boolean[] visited) {
+    public void print() {
+        for (int i = 0; i < size * size; i++) {
+            if (i % 5 == 0) {
+                System.out.println();
+            }
+
+            switch (vertices[i]) {
+                case 0: System.out.print("W"); break;
+                case 1: System.out.print("B"); break;
+                case -1: System.out.print("_"); break;
+            }
+            System.out.print(" ");
+        }
+    }
+
+    /**
+     * @param n The vertex
+     * @param visited boolean array, telling if we have visited visited[i]
+     * @param player
+     * @return A list of neighbors of n, if we haven't visited them before, and
+     * if they belong to the same player
+     */
+    private List<Integer> neighborsOf(int n, boolean[] visited, int player) {
         List<Integer> result = new ArrayList<>(4);
 
         for (Direction dir : Direction.values()) {
@@ -93,7 +115,8 @@ public class RoadGraph {
             int pNeighbor = n + val;
 
             if (pNeighbor >= 0 && pNeighbor < size * size
-                    && !visited[pNeighbor] && vertices[pNeighbor] == vertices[n]) {
+                    && !visited[pNeighbor]
+                    && vertices[pNeighbor] == vertices[n] && vertices[n] == player) {
                 result.add(pNeighbor);
             }
         }
@@ -110,7 +133,7 @@ public class RoadGraph {
         return result;
     }
 
-    public List<Integer> neighborsOf(VirtualNode n) {
+    private List<Integer> neighborsOf(VirtualNode n) {
         ArrayList<Integer> result = new ArrayList<>(size);
         if (n.equals(LEFT)) {
             result = new ArrayList<>(ALL_LEFT_NODES);

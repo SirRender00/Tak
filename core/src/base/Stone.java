@@ -11,6 +11,6 @@ public class Stone {
     }
 
     public enum Type {
-        FLAT, STANDING, CAP
+        FLAT, STANDING, CAP, NONE
     }
 }

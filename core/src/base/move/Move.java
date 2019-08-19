@@ -6,12 +6,10 @@ public abstract class Move {
 
     public int x;
     public int y;
-    public int player;
 
-    public Move(int x, int y, int player) {
+    public Move(int x, int y) {
         this.x = x;
         this.y = y;
-        this.player = player;
     }
 
     /**

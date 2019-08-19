@@ -6,14 +6,19 @@ import structures.Direction;
 
 import java.util.Iterator;
 
+/**
+ * Pick ups a stack of size <code>pickup</code> at specified point, then
+ * drops the bottom <code>vals[i]</code> one square at a time in Direction
+ * <code>dir</code>, for i in length vals.
+ */
 public class StackMove extends Move {
 
     public Direction dir;
     public int[] vals;
     public int pickup;
 
-    public StackMove(int x, int y, int player, Direction dir, int pickup, int[] vals) {
-        super(x, y, player);
+    public StackMove(int x, int y, Direction dir, int pickup, int[] vals) {
+        super(x, y);
         this.dir = dir;
         this.vals = vals;
         this.pickup = pickup;
@@ -22,24 +27,22 @@ public class StackMove extends Move {
     @Override
     public void action(Tak tak) {
         Iterator<Stone> trans = tak.getStackAt(x, y).stoneIterator(pickup);
+        int transX = x;
+        int transY = y;
 
-        for (int i = 0; i < vals.length - 1; i++) {
-            x += dir.dx;
-            y += dir.dy;
+        for (int i = 0; i < vals.length; i++) {
+            transX += dir.dx;
+            transY += dir.dy;
 
             for (int j = 0; j < vals[i]; j++) {
-                tak.getStackAt(x, y).addElement(trans.next());
+                tak.getStackAt(transX, transY).addElement(trans.next());
             }
-            tak.getRoadGraph().updateVertex(x, y, tak.getStackAt(x, y).peek().player);
+            tak.getRoadGraph().updateVertex(transX, transY, tak.getStackAt(transX, transY).peek().player);
         }
 
-        x += dir.dx;
-        y += dir.dy;
+        tak.getStackAt(transX, transY).peek().type = Stone.Type.FLAT;
 
-        tak.getStackAt(x, y).peek().type = Stone.Type.FLAT;
-        for (int j = 0; j < vals[vals.length - 1]; j++) {
-            tak.getStackAt(x, y).addElement(trans.next());
-        }
+        tak.getStackAt(x, y).removeRange(tak.getStackAt(x, y).tSize() - pickup, tak.getStackAt(x, y).tSize());
         tak.getRoadGraph().updateVertex(x, y, tak.getStackAt(x, y).peek().player);
     }
 }
