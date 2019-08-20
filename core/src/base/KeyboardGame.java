@@ -29,7 +29,7 @@ public class KeyboardGame {
                     System.out.println(e.getMessage());
                 }
 
-                tak.printRoadGraph();
+                System.out.println(tak.getRoadGraphString());
             }
         }
 

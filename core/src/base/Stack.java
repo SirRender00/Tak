@@ -17,7 +17,7 @@ public class Stack extends Vector<Stone> {
      */
     public Stack(int initialCapacity) {
         super(initialCapacity);
-        addElement(new Stone(-1, Stone.Type.NONE));
+        addElement(new Stone(-1, Stone.Type.FLAT));
     }
 
     /**

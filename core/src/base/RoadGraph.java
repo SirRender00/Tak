@@ -1,5 +1,6 @@
 package base;
 
+import jdk.jshell.execution.DirectExecutionControl;
 import structures.Direction;
 import structures.Point;
 
@@ -148,21 +149,39 @@ public class RoadGraph {
     }
 
     /**
-     * Used to print who owns what vertex
+     * @return The String representation of the road map.
+     * ("W" if white controls it, "B" if black controls it,
+     * "_" if no one controls it.)
      */
-    public void print() {
-        for (int i = 0; i < size * size; i++) {
-            if (i % 5 == 0) {
-                System.out.println();
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int j = size - 1; j >= 0; j--) {
+            for (int i = 0; i < size; i++) {
+                switch (vertices[pointToVertex(i, j)]) {
+                    case 0:
+                        stringBuilder.append("W");
+                        break;
+                    case 1:
+                        stringBuilder.append("B");
+                        break;
+                    case -1:
+                        stringBuilder.append("_");
+                        break;
+                }
+
+                if (i != 4) {
+                    stringBuilder.append(" ");
+                }
             }
 
-            switch (vertices[i]) {
-                case 0: System.out.print("W"); break;
-                case 1: System.out.print("B"); break;
-                case -1: System.out.print("_"); break;
+            if (j != 0) {
+                stringBuilder.append("\n");
             }
-            System.out.print(" ");
         }
+
+        return stringBuilder.toString();
     }
 
     /**
@@ -176,6 +195,12 @@ public class RoadGraph {
         List<Integer> result = new ArrayList<>(4);
 
         for (Direction dir : Direction.values()) {
+            //we avoid checking off the board
+            if (n % size == 0 && dir.equals(Direction.LEFT)
+                || n % (size - 1) == 0 && dir.equals(Direction.RIGHT)) {
+                continue;
+            }
+
             int val = pointToVertex(dir.dx, dir.dy);
             int pNeighbor = n + val;
 
@@ -225,6 +250,17 @@ public class RoadGraph {
         return result;
     }
 
+    /**
+     * We have 4 {@code VirtualNode} objects TOP, BOTTOM, LEFT, RIGHT, whose
+     * neighbors are all TOP vertices, all BOTTOM vertices, etc. To prevent
+     * "backwash"(say, that TOP and RIGHT are connected via two corners and
+     * BOTTOM), TOP and LEFT have directed edges <em>to</em> the board and
+     * BOTTOM and RIGHT have directed edges <em>from</em> the board.
+     * So, TOP has neighbors ALL_TOP_NODES and LEFT has neighbors
+     * ALL_LEFT_NODES. BOTTOM and RIGHT have no neighbors, but
+     * any right vertex has RIGHT as a neighbor, and any bottom vertex
+     * has BOTTOM as a neighbor.
+     */
     private static class VirtualNode {
 
         int value;

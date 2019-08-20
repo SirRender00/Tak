@@ -1,6 +1,7 @@
 package base;
 
 import base.move.Move;
+import base.move.MoveFactory;
 import base.move.PlaceMove;
 import base.move.StackMove;
 
@@ -81,21 +82,35 @@ public class Tak {
      */
     public Stack getStackAt(int x, int y) {
         if (!inBounds(x) || !inBounds(y)) {
-            throw new IndexOutOfBoundsException(x + " or " + y + " is out of bounds.");
+            throw new IndexOutOfBoundsException(x + ", " + y + " is out of bounds.");
         }
 
         return board[x][y];
     }
 
     /**
+     * @return The size of the board
+     */
+    public int size() {
+        return gameType.size;
+    }
+
+    /**
      * @return The player index whose turn it is.
      */
-    public int getCurrentPlayer() {
+    public int getCurrentPlayerIndex() {
         return currentPlayer;
     }
 
     /**
-     * @return The player who "owns" the move being played.
+     * @return The player whose turn it is.
+     */
+    public Player getCurrentPlayer() {
+        return players[getCurrentPlayerIndex()];
+    }
+
+    /**
+     * @return The player index who "owns" the stone being played.
      * (Read on the rules of Tak about the first moves the
      * of game being played differently.)
      */
@@ -139,8 +154,10 @@ public class Tak {
      * @throws TakException If the given move is invalid
      */
     public void safeExecuteMove(Move move) throws TakException {
-        if (!validateMove(move)) {
-            throw new TakException("Invalid Move");
+        StringBuilder message = new StringBuilder();
+
+        if (!validateMove(move, message)) {
+            throw new TakException(message.toString());
         }
 
         if(isGameOver()) {
@@ -175,16 +192,19 @@ public class Tak {
      * @return 0 if player 0 won, 1 if player 1 won, 2 if its a tie, or -1 if the game continues
      */
     private int checkWin() {
-        for (int i = currentPlayer; i != 1 - currentPlayer; i = 1 - currentPlayer) {
-            if (isRoadWin(i)) {
-                return i;
+        // if either player won by road
+        int curr = currentPlayer;
+        for (int i = 0; i < 2; i++) {
+            if (isRoadWin(curr)) {
+                return curr;
             }
+            curr = 1 - currentPlayer;
         }
 
-        for (int i = currentPlayer; i != 1 - currentPlayer; i = 1 - currentPlayer) {
-            if (players[i].sideStones == 0 && players[i].capStones == 0) {
-                return flatStoneWin();
-            }
+        // if the current player does not have any stones remaining or if the board is filled
+        MoveFactory.PlaceMoveIterator pIter = new MoveFactory.PlaceMoveIterator(this);
+        if (!pIter.hasNext()) {
+            return flatStoneWin();
         }
 
         return -1;
@@ -246,7 +266,19 @@ public class Tak {
      * (not the players turn to play, invalid move), true otherwise
      */
     public boolean validateMove(Move move) {
-        if (!(inBounds(move.x) && inBounds(move.y))) {
+        return validateMove(move, new StringBuilder());
+    }
+
+    /**
+     * @param move The move to validate
+     * @param message An empty message container that will contain specific
+     *                error messages if this method returns false.
+     * @return False if the move is invalid for any reason
+     * (not the players turn to play, invalid move), true otherwise
+     */
+    private boolean validateMove(Move move, StringBuilder message) {
+        if (!inBounds(move.x, move.y)) {
+            message.append("Move location is out of bounds.");
             return false;
         }
 
@@ -254,14 +286,15 @@ public class Tak {
         if (firstMove) {
             if (!(move instanceof PlaceMove)
                     || !((PlaceMove) move).type.equals(Stone.Type.FLAT)) {
+                message.append("First moves should place a flat stone.");
                 return false;
             }
         }
 
         if (move instanceof StackMove) {
-            return validateStackMove((StackMove) move);
+            return validateStackMove((StackMove) move, message);
         } else {
-            return validatePlaceMove((PlaceMove) move);
+            return validatePlaceMove((PlaceMove) move, message);
         }
     }
 
@@ -269,47 +302,96 @@ public class Tak {
      * @param n The variable to check
      * @return {@code true} if and only if {@code 0 <= n < board size}.
      */
-    private boolean inBounds(int n) {
+    public boolean inBounds(int n) {
         return n >= 0 && n < gameType.size;
     }
 
-    private boolean validatePlaceMove(PlaceMove move) {
+    /**
+     * @param x The x coord
+     * @param y the y coord
+     * @return {@code true} if and only if {@code inBounds(x) && inBounds(y)}
+     */
+    public boolean inBounds(int x, int y) {
+        return inBounds(x) && inBounds(y);
+    }
+
+    /**
+     * @param move The {@code PlaceMove} to validate.
+     * @param message An empty message container that will contain specific
+     *                error messages if this method returns false.
+     * @return {@code true} if and only if the move will not
+     * cause an error in the course of calling {@code Tak.executeMove(...)},
+     * {@code false} otherwise.
+     */
+    private boolean validatePlaceMove(PlaceMove move, StringBuilder message) {
+        message.append("Cannot place stone, ");
+
         //the tile which a piece is going on better be empty
         if (!getStackAt(move.x, move.y).isEmpty()) {
+            message.append("square already occupied");
             return false;
         }
 
         //they also should have sufficient pieces
         if (move.type.equals(Stone.Type.CAP)) {
-            return players[getStonePlayer()].capStones > 0;
+            if (players[getStonePlayer()].capStones <= 0) {
+                message.append("out of capstones!");
+                return false;
+            }
         } else {
-            return players[getStonePlayer()].sideStones > 0;
+            if (players[getStonePlayer()].sideStones <= 0) {
+                message.append("out of sidestones!");
+                return false;
+            }
         }
+
+        return true;
     }
 
-    private boolean validateStackMove(StackMove move) {
+    /**
+     * @param move The {@code StackMove} to validate.
+     * @param message An empty message container that will contain specific
+     *                error messages if this method returns false.
+     * @return {@code true} if and only if the move will not
+     * cause an error in the course of calling {@code Tak.executeMove(...)},
+     * {@code false} otherwise.
+     */
+    private boolean validateStackMove(StackMove move, StringBuilder message) {
+        message.append("Cannot execute stack move, ");
+
+        // current player must own the stack they are trying to move
+        if (currentPlayer != getStackAt(move.x, move.y).peek().player) {
+            message.append("player does not control stack.");
+            return false;
+        }
+
         // pickup amount must be less than or equal to the amount of stones at the point
-        if (getStackAt(move.x, move.y).size() > move.pickup) {
+        if (move.pickup > getStackAt(move.x, move.y).size()) {
+            message.append("not enough stones to pickup.");
             return false;
         }
 
         int tempX = move.x;
         int tempY = move.y;
         int remainingStones = move.pickup;
+
         for (int i = 0; i < move.vals.length - 1; i++) {
-            remainingStones -= move.vals[i];
+            // should have enough stones to drop down
+            if (remainingStones <= 0) {
+                message.append("not enough stones to drop down");
+                return false;
+            }
+
             tempX += move.dir.dx;
             tempY += move.dir.dy;
 
-            // should have enough stones to drop down
-            if (remainingStones < 0) {
+            // everything except the last move should have a flat stone on top
+            if (!getStackAt(tempX, tempY).peek().type.equals(Stone.Type.FLAT)) {
+                message.append("stone in the path is not flat!");
                 return false;
             }
 
-            // everything except the last move should have a flat stone on top
-            if (!getStackAt(tempX, tempY).peek().type.equals(Stone.Type.FLAT)) {
-                return false;
-            }
+            remainingStones -= move.vals[i];
         }
 
         tempX += move.dir.dx;
@@ -318,20 +400,26 @@ public class Tak {
         // if the last stone is not flat, it better be a standing stone, and there
         // should only be one remaining piece to drop which should be a cap stone
         if (!getStackAt(tempX, tempY).isEmpty() && !getStackAt(tempX, tempY).peek().type.equals(Stone.Type.FLAT)) {
-            return getStackAt(tempX, tempY).peek().type.equals(Stone.Type.STANDING)
+
+            if (!(getStackAt(tempX, tempY).peek().type.equals(Stone.Type.STANDING)
                     && getStackAt(move.x, move.y).peek().type.equals(Stone.Type.CAP)
-                    && move.vals[move.vals.length - 1] == 1;
+                    && move.vals[move.vals.length - 1] == 1)) {
+
+                message.append("stone in the path is not flat!");
+                return false;
+            }
         }
 
         return true;
     }
 
     /**
-     * Prints the road graph representation of the current board
-     * to the console. Used for testing purposes.
+     * @return The String representation of the road map.
+     * ("W" if white controls it, "B" if black controls it,
+     * "_" if no one controls it.)
      */
-    public void printRoadGraph() {
-        roadGraph.print();
+    public String getRoadGraphString() {
+        return roadGraph.toString();
     }
 
     /**
@@ -354,9 +442,9 @@ public class Tak {
      * Keeps track of the player's "side stone" and cap stone amounts.
      * (Side stones are stones that can be flat or standing.)
      */
-    private static class Player {
-        int sideStones;
-        int capStones;
+    public static class Player {
+        private int sideStones;
+        private int capStones;
 
         /**
          * @param sideStones Side stone amount
@@ -375,6 +463,22 @@ public class Tak {
         Player(Player player) {
             sideStones = player.sideStones;
             capStones = player.capStones;
+        }
+
+        /**
+         * @param type The type of stone to query
+         * @return The amount of stones of the specified type
+         * (FLAT and STANDING stones are the same type of stone for
+         * this purpose)
+         */
+        public int getRemainingStones(Stone.Type type) {
+            if (type.equals(Stone.Type.FLAT) || type.equals(Stone.Type.STANDING)) {
+                return sideStones;
+            } else if (type.equals(Stone.Type.CAP)) {
+                return capStones;
+            } else {
+                return -1;
+            }
         }
     }
 
