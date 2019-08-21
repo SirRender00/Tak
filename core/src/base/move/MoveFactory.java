@@ -4,7 +4,13 @@ import base.Stone;
 import base.Tak;
 import structures.Direction;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Collections;
+import java.util.NoSuchElementException;
+import java.util.HashSet;
 
 /**
  * Utility functions related to the generation of Tak {@link Move} objects.
@@ -293,7 +299,7 @@ public final class MoveFactory {
         boolean stackHasNext;
 
         StackMoveIterator(Tak tak) {
-            this.tak = new Tak(tak);
+            this.tak = new Tak(tak); //copy to prevent concurrent modification
             prepareStack();
         }
 
@@ -308,8 +314,8 @@ public final class MoveFactory {
                             d = 0;
                             n = 1;
 
-                            vIter = new StackValsIterator(1, lengthToNearestStop(tak, u, v, Direction.values()[d]));
-                            prepareStack(); // recurse to make sure pIter has next
+                            vIter = new StackValsIterator(n, lengthToNearestStop(tak, u, v, Direction.values()[d]));
+                            prepareStack(); // recurse to make sure vIter has next
                         }
                     }
                     v = 0;
@@ -317,8 +323,14 @@ public final class MoveFactory {
 
                 // if we can't find a suitable stack, we're done
                 stackHasNext = false;
+                return;
             } else if (!vIter.hasNext()) {
-                if (n < tak.getStackAt(u, v).size() && n < tak.size()) { // done with picking up n
+                if (vIter.spaces == 0 // boxed in for this direction
+                        || n >= tak.getStackAt(u, v).size() || n >= tak.size()) { // done with all pickups
+                    d += 1; // move on to next direction
+                    n = 1;
+                    vIter = new StackValsIterator(n, lengthToNearestStop(tak, u, v, Direction.values()[d]));
+                } else { // done with picking up n
                     n += 1;
 
                     Direction dir = Direction.values()[d];
@@ -330,14 +342,13 @@ public final class MoveFactory {
                     // the piece that stopped us is a standing stone
                     if (tak.getStackAt(u, v).peek().type.equals(Stone.Type.CAP)
                             && stop < tak.size() && n >= stop
-                            && tak.getStackAt(u + stop * dir.dx, v + stop * dir.dy).peek().type.equals(Stone.Type.STANDING)) {
+                            && tak.getStackAt(u + stop * dir.dx, v + stop * dir.dy)
+                                    .peek().type.equals(Stone.Type.STANDING)) {
                         // special capstone iterator
                         vIter = new StackValsCapIterator(n, stop - 1);
                     } else {
                         vIter = new StackValsIterator(n, stop - 1);
                     }
-                } else { // done with all pickups
-                    d += 1; // move on to next direction
                 }
 
                 prepareStack(); //recurse to make sure pIter has next
@@ -373,55 +384,58 @@ public final class MoveFactory {
         HashMap<Integer, List<int[]>> FSVS;
         Iterator<int[]> currIter = Collections.emptyIterator();
 
-        int size;
-        int minSize;
+        int spaces;
+        int minSpaces;
         int n;
 
         /**
          * Iterates through all possible splitting of a stack of size {@code n}
-         * for splits ranging from {@code minSize} to {@code size} (inclusive).
-         * (Default for {@code minSize} is 1.) Exactly the same as
-         * {@code StackValsIterator(n, size, 1)}.
+         * for splits ranging from {@code minSpaces} to {@code spaces} (inclusive).
+         * (Default for {@code minSpaces} is 1.) Exactly the same as
+         * {@code StackValsIterator(n, spaces, 1)}.
+         *
+         * @param n The stack pickup amount
+         * @param spaces The max amount of spaces to partition up to
          */
-        StackValsIterator(int n, int size) {
-            this(n, size, 1);
+        StackValsIterator(int n, int spaces) {
+            this(n, spaces, 1);
         }
 
         /**
          * Iterates through all possible splitting of a stack of size {@code n}
-         * for splits ranging from {@code minSize} to {@code size} (inclusive).
+         * for splits ranging from {@code minSpaces} to {@code spaces} (inclusive).
+         *
+         * @param n The stack pickup amount
+         * @param spaces The max amount of spaces to partition up to
+         * @param minSpaces The min amount of spaces to partition from
          */
-        StackValsIterator(int n, int size, int minSize) {
-            if (minSize <= 0) {
-                throw new IllegalArgumentException("min size has to be at least 1");
-            }
-
+        StackValsIterator(int n, int spaces, int minSpaces) {
             if (!allStackVals.containsKey(n)) {
                 allStackVals.put(n, new HashMap<>());
             }
 
             FSVS = allStackVals.get(n);
             this.n = n;
-            this.size = size;
-            this.minSize = minSize;
+            this.spaces = spaces;
+            this.minSpaces = minSpaces;
             prepareStackVals();
         }
 
         void prepareStackVals() {
-            if (!currIter.hasNext() && minSize <= size) {
-                if (FSVS.containsKey(minSize)) {
-                    currIter = FSVS.get(minSize).iterator();
-                } else {
+            if (!currIter.hasNext() && minSpaces <= spaces && minSpaces <= n) {
+                if (!FSVS.containsKey(minSpaces)) {
                     List<int[]> partitions = new ArrayList<>();
-                    FSVS.put(minSize, partitions);
+                    FSVS.put(minSpaces, partitions);
 
                     //compute partitions adding to n using exactly minSize partitions
-                    List<int[]> uniquePartitions = getPartitions(n, minSize, n - minSize + 1);
+                    List<int[]> uniquePartitions = getPartitions(n, minSpaces, n - minSpaces + 1);
                     for (int[] vals : uniquePartitions) {
                         partitions.addAll(getPermutations(vals));
                     }
                 }
-                minSize += 1;
+
+                currIter = FSVS.get(minSpaces).iterator();
+                minSpaces += 1;
             }
         }
 
@@ -461,11 +475,17 @@ public final class MoveFactory {
         List<int[]> getPermutations(int[] vals) {
             List<int[]> result = new ArrayList<>();
 
+            // only one way to permute 1 element
             if (vals.length == 1) {
                 result.add(vals);
                 return result;
             }
 
+            // We take out the first element and then consider
+            // every permutation of the remaining elements.
+            // We then place the first element in every position
+            // ranging from 1 to length of the original list
+            // for every such permutation.
             int[] temp = new int[vals.length - 1];
             System.arraycopy(vals, 1, temp, 0, temp.length);
 
@@ -510,11 +530,13 @@ public final class MoveFactory {
 
         Iterator<int[]> specialIter = Collections.emptyIterator();
 
-        StackValsCapIterator(int n, int size) {
-            super(n, size);
+        StackValsCapIterator(int n, int space) {
+            super(n, space); // the regular iterator
 
-            if (n > 1) {
-                specialIter = new StackValsIterator(n - 1, size, size);
+            if (space == 0) { // we can only move the cap stone to flatten the stone
+                specialIter = new StackValsIterator(1, 1);
+            } else if (n > 1) {
+                specialIter = new StackValsIterator(n - 1, space, space);
             }
         }
 

@@ -1,10 +1,7 @@
 import base.Tak;
-import base.move.Move;
 import base.move.MoveFactory;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.*;
 
 public class FiveFiveTests {
 

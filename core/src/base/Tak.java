@@ -151,7 +151,7 @@ public class Tak {
      * Checks first if the move is valid before trying to execute the move.
      * Recommended if there is any uncertainty that the move may be invalid.
      * @param move The move to execute
-     * @throws TakException If the given move is invalid
+     * @throws TakException If the given move is invalid.
      */
     public void safeExecuteMove(Move move) throws TakException {
         StringBuilder message = new StringBuilder();
@@ -189,10 +189,10 @@ public class Tak {
     }
 
     /**
-     * @return 0 if player 0 won, 1 if player 1 won, 2 if its a tie, or -1 if the game continues
+     * @return 0 if player 0 won, 1 if player 1 won, 2 if its a tie, or -1 if the game continues.
      */
     private int checkWin() {
-        // if either player won by road
+        // if either player won by road, we start with curr player in case of simultaneous win
         int curr = currentPlayer;
         for (int i = 0; i < 2; i++) {
             if (isRoadWin(curr)) {
@@ -328,7 +328,7 @@ public class Tak {
 
         //the tile which a piece is going on better be empty
         if (!getStackAt(move.x, move.y).isEmpty()) {
-            message.append("square already occupied");
+            message.append("square already occupied.");
             return false;
         }
 
@@ -378,7 +378,7 @@ public class Tak {
         for (int i = 0; i < move.vals.length - 1; i++) {
             // should have enough stones to drop down
             if (remainingStones <= 0) {
-                message.append("not enough stones to drop down");
+                message.append("not enough stones to drop down.");
                 return false;
             }
 
