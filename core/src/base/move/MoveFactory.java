@@ -328,6 +328,10 @@ public final class MoveFactory {
                 if (vIter.spaces == 0 // boxed in for this direction
                         || n >= tak.getStackAt(u, v).size() || n >= tak.size()) { // done with all pickups
                     d += 1; // move on to next direction
+                    if (d == Direction.values().length) {
+                        prepareStack();
+                    }
+
                     n = 1;
                     vIter = new StackValsIterator(n, lengthToNearestStop(tak, u, v, Direction.values()[d]));
                 } else { // done with picking up n
