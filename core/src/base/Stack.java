@@ -58,7 +58,9 @@ public class Stack extends Vector<Stone> {
 
     /**
      * Will always be >= 1 because of the sentinel stone.
-     * Identical to <code>Vector.size()</code>
+     * Identical to <code>Vector.size()</code>. See
+     * <code>Stack.size()</code> for the number of
+     * player-owned stones in this stack.
      * @return The "technical" size of this stack.
      */
     public int tSize() {
@@ -66,20 +68,25 @@ public class Stack extends Vector<Stone> {
     }
 
     /**
-     * @return The number of player-owned stones in this stack
+     * See <code>tSize()</code> if looking for the "technical"
+     * size of this stack, i.e. including the sentinel stone.
+     * @return The number of player-owned stones in this stack.
      */
     @Override
     public int size() {
-        return super.size() - 1;
+        return tSize() - 1;
     }
 
     @Override
     public void removeRange(int fromIndex, int toIndex) {
+        if (fromIndex == 0) {
+            throw new IllegalArgumentException("Cannot remove sentinel stone.");
+        }
         super.removeRange(fromIndex, toIndex);
     }
 
     /**
-     * @param n return the last n stones from the top
+     * @param n the number of stones from the top
      * @return An iterator over the last n stones
      */
     public Iterator<Stone> stoneIterator(int n) {

@@ -30,4 +30,9 @@ public abstract class Move {
      * @param tak The {@link Tak} instance to execute this move on
      */
     public abstract void action(Tak tak);
+
+    @Override
+    public String toString() {
+        return MoveFactory.moveToString(this);
+    }
 }

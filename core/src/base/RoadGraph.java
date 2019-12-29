@@ -11,10 +11,11 @@ import java.util.Queue;
 import java.util.Arrays;
 
 /**
- * Used for a naive implementation to check for road wins.
+ * Used for a naive implementation to check for road wins. <br> <br>
+ *
  * We keep track of who owns what square with the vertices array
- * (i.e. vertices[i] = 0 if player 0 owns it, = 1 if player 1 owns it,
- * and = -1 if no one owns it or it is a standing stone). We also create
+ * (i.e. vertices[i] = 0 if player 0 owns it, 1 if player 1 owns it,
+ * or -1 if no one owns it or it is a standing stone). We also create
  * four {@link VirtualNode} objects TOP, BOTTOM, LEFT, RIGHT, whose neighbors are
  * all TOP vertices, all BOTTOM vertices, etc. To prevent "backwash"
  * (say, that TOP and RIGHT are connected via two corners and BOTTOM),
@@ -24,8 +25,9 @@ import java.util.Arrays;
  * ALL_LEFT_NODES. BOTTOM and RIGHT have no neighbors, but
  * any right vertex has RIGHT as a neighbor, and any bottom vertex
  * has BOTTOM as a neighbor. <br> <br>
- * The invariant that vertices[i] = 0 if player 0 owns it, = 1 if player 1 owns it,
- * and = -1 if no one owns it or it is a standing stone must be kept in other classes
+ *
+ * The invariant that vertices[i] = 0 if player 0 owns it, 1 if player 1 owns it,
+ * and -1 if no one owns it or it is a standing stone must be kept in other classes
  * using this class, otherwise this class will not function as expected.
  */
 public class RoadGraph {
@@ -171,7 +173,7 @@ public class RoadGraph {
                         break;
                 }
 
-                if (i != 4) {
+                if (i != size - 1) {
                     stringBuilder.append(" ");
                 }
             }
@@ -192,7 +194,7 @@ public class RoadGraph {
      * if they belong to the same player
      */
     private List<Integer> neighborsOf(int n, boolean[] visited, int player) {
-        List<Integer> result = new ArrayList<>(4);
+        List<Integer> result = new ArrayList<>(size - 1);
 
         for (Direction dir : Direction.values()) {
             //we avoid checking off the board

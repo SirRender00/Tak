@@ -2,7 +2,6 @@ package engine.models;
 
 import base.Tak;
 import base.move.Move;
-import engine.Engine;
 import engine.GameTree;
 import engine.Model;
 import structures.Tuple;
@@ -11,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
-public class TakEngineV1 extends Model implements Engine {
+public class TakEngineV1 extends Model {
 
     @Override
     public List<Tuple<Move, Double>> getMoves(Tak tak) {
@@ -19,12 +18,17 @@ public class TakEngineV1 extends Model implements Engine {
     }
 
     @Override
-    protected void update(GameTree tree, double outcome) {
+    public double getValuation(Tak tak) {
+        return 0;
+    }
+
+    @Override
+    public void update(GameTree tree, double outcome) {
 
     }
 
     @Override
-    protected void train(GameTree tree) {
+    public void train(GameTree tree) {
         Tak tak = tree.tak;
         Stack<GameTree> stack = new Stack<>();
         stack.push(tree);
@@ -39,15 +43,15 @@ public class TakEngineV1 extends Model implements Engine {
             GameTree gTree = stack.pop();
 
             gTree.timesVisited += 1;
-            gTree.favorsWhite += tak.getGameResult().getWhiteWin();
+            gTree.favorsWhite += tak.getGameResult().getWhitePayoff();
 
-            update(gTree, tak.getGameResult().getWhiteWin());
+            update(gTree, tak.getGameResult().getWhitePayoff());
         }
     }
 
     private GameTree chooseBestTraining(Iterator<GameTree> trees) {
-        GameTree best = trees.next();
-        double bestVal = getTrainingValuation(best.tak);
+        GameTree best = null;
+        double bestVal = Double.NEGATIVE_INFINITY;
 
         while (trees.hasNext()) {
             GameTree tree = trees.next();

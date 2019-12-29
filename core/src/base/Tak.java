@@ -5,13 +5,15 @@ import base.move.MoveFactory;
 import base.move.PlaceMove;
 import base.move.StackMove;
 
+import java.util.ConcurrentModificationException;
+
 /**
  * The main class that represents a full Tak game. Instantiate this
  * class with a {@link GameType} which is designated by board size
  * (default is five by five). The game progresses by passing in a {@link Move}
  * to {@code Tak.executeSafeMove(...)} (or {@code Tak.executeMove(...)} to
- * turn off validity checks). Once the game has reached an end condition,
- * (as specified by the rules http://cheapass.com/wp-content/uploads/2016/07/Tak-Beta-Rules.pdf),
+ * turn off validity checks). Once the game has reached an end condition --
+ * (as specified by the <a href="http://cheapass.com/wp-content/uploads/2016/07/Tak-Beta-Rules.pdf">rules</a>) --
  * {@code getResult()} will return the corresponding {@link GameResult}. <br> <br>
  *
  * The class represents the Tak board as a 2D array of {@link Stack} objects and keeps track
@@ -29,6 +31,7 @@ public class Tak {
     private boolean firstMove = true;
 
     private RoadGraph roadGraph;
+    private boolean isLocked = false;
 
     /**
      * @param type The GameType that specifies the board size
@@ -71,6 +74,7 @@ public class Tak {
         roadGraph = new RoadGraph(other.roadGraph);
 
         result = other.result;
+        isLocked = other.isLocked;
     }
 
     /**
@@ -110,6 +114,29 @@ public class Tak {
     }
 
     /**
+     * @return true if it's the move of the game, false otherwise.
+     */
+    public boolean isFirstMove() {
+        return firstMove;
+    }
+
+    /**
+     * Locking a tak instance, then trying to execute a move will
+     * result in a ConcurrentModificationException.
+     * Ensures that this tak instance will not change.
+     */
+    public void lock() {
+        isLocked = true;
+    }
+
+    /**
+     * Allow modifications to the tak instance after locking it.
+     */
+    public void unlock() {
+        isLocked = false;
+    }
+
+    /**
      * @return The player index who "owns" the stone being played.
      * (Read on the rules of Tak about the first moves the
      * of game being played differently.)
@@ -145,47 +172,6 @@ public class Tak {
      */
     public GameResult getGameResult() {
         return result;
-    }
-
-    /**
-     * Checks first if the move is valid before trying to execute the move.
-     * Recommended if there is any uncertainty that the move may be invalid.
-     * @param move The move to execute
-     * @throws TakException If the given move is invalid.
-     */
-    public void safeExecuteMove(Move move) throws TakException {
-        StringBuilder message = new StringBuilder();
-
-        if (!validateMove(move, message)) {
-            throw new TakException(message.toString());
-        }
-
-        if(isGameOver()) {
-            throw new TakException("Game is over");
-        }
-
-        executeMove(move);
-    }
-
-    /**
-     * Executes the given move without checking for validity.
-     * Use <code>safeExecuteMove(...)</code> for checks.
-     * @param move The move to execute
-     */
-    public void executeMove(Move move) {
-        if (firstMove && currentPlayer == 1) {
-            move.action(this);
-            firstMove = false;
-        } else {
-            move.action(this);
-        }
-
-        switch (checkWin()) {
-            case -1: currentPlayer = 1 - currentPlayer; break;
-            case 0: result = GameResult.WHITE; break;
-            case 1: result = GameResult.BLACK; break;
-            case 2: result = GameResult.TIE; break;
-        }
     }
 
     /**
@@ -257,6 +243,54 @@ public class Tak {
             return 0;
         } else {
             return 2;
+        }
+    }
+
+    /**
+     * Checks first if the move is valid before trying to execute the move.
+     * Recommended if there is any uncertainty that the move may be invalid.
+     * @param move The move to execute
+     * @throws TakException If the given move is invalid.
+     * @throws ConcurrentModificationException If a move iterator is iterating over this Tak instance.
+     */
+    public void safeExecuteMove(Move move) throws TakException {
+        StringBuilder message = new StringBuilder();
+
+        if (!validateMove(move, message)) {
+            throw new TakException(message.toString());
+        }
+
+        if(isGameOver()) {
+            throw new TakException("Game is over.");
+        }
+
+        executeMove(move);
+    }
+
+    /**
+     * Executes the given move without checking for validity.
+     * Use <code>safeExecuteMove(...)</code> for checks.
+     * @param move The move to execute
+     *
+     * @throws ConcurrentModificationException If a move iterator is iterating over this Tak instance.
+     */
+    public void executeMove(Move move) {
+        if (isLocked) {
+            throw new ConcurrentModificationException("An iterator is currently using this Tak instance.");
+        }
+
+        if (firstMove && currentPlayer == 1) {
+            move.action(this);
+            firstMove = false;
+        } else {
+            move.action(this);
+        }
+
+        switch (checkWin()) {
+            case -1: currentPlayer = 1 - currentPlayer; break;
+            case 0: result = GameResult.WHITE; break;
+            case 1: result = GameResult.BLACK; break;
+            case 2: result = GameResult.TIE; break;
         }
     }
 
@@ -484,7 +518,7 @@ public class Tak {
 
     /**
      * A {@code GameType} instantiates a Tak game
-     * by board size, starting side stone amount, and
+     * by specifying board size, starting side stone amount, and
      * starting cap stone amounts.
      */
     public enum GameType {
@@ -514,12 +548,12 @@ public class Tak {
         ONGOING("The game is ongoing.", 1 / 2),
         TIE("Game was a tie!", 1 / 2);
 
-        String message;
-        double whiteWin;
+        private String message;
+        private double whitePayoff;
 
         GameResult(String str, double d) {
             message = str;
-            whiteWin = d;
+            whitePayoff = d;
         }
 
         /**
@@ -535,8 +569,8 @@ public class Tak {
          * Black wins -> 0 <br>
          * Tie/Ongoing -> 1/2
          */
-        public double getWhiteWin() {
-            return whiteWin;
+        public double getWhitePayoff() {
+            return whitePayoff;
         }
     }
 

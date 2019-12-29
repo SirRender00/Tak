@@ -18,8 +18,8 @@ public class KeyboardGame {
                 Move move;
                 try {
                     move = MoveFactory.parseMove(msg);
-                } catch (Exception e) {
-                    System.out.println("Error in parsing move");
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
                     continue;
                 }
 
