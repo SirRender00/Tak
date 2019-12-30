@@ -3,11 +3,10 @@ import base.Tak;
 import base.move.Move;
 import base.move.MoveFactory;
 import base.move.PlaceMove;
+import base.move.StackMove;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class GenerateMovesTest {
 
@@ -63,12 +62,45 @@ public class GenerateMovesTest {
             } else {
                 stackCount += 1;
             }
-            System.out.println(m);
         }
 
         Assert.assertEquals(23, flatCount);
         Assert.assertEquals(23, standCount);
         Assert.assertEquals(23, capCount);
         Assert.assertEquals(3, stackCount);
+    }
+
+    @Test
+    public void stackMoveGen1() throws Tak.TakException {
+        // stacks 4 in the middle of the board WBWB, white should only
+        // have place moves not concerning the middle
+        // black should have the proper amount of stack moves
+        Tak tak = new Tak(Tak.GameType.FIVE);
+        executeConsecutiveMoves(tak, "c2", "b3", "d3", "c4");
+
+        executeConsecutiveMoves(tak, "1b3>1", "1c2+1", "1d3<1", "1c4-1");
+
+        for (Move m : MoveFactory.allPossibleMoves(tak)) {
+            Assert.assertTrue(tak.validateMove(m));
+            Assert.assertFalse(m instanceof StackMove);
+            if (m instanceof PlaceMove) {
+                Assert.assertFalse(m.x == 2 && m.y == 2);
+            }
+        }
+
+        tak.safeExecuteMove(MoveFactory.parseMove("a1"));
+
+        int stackCount = 0;
+        for (Move m : MoveFactory.allPossibleMoves(tak)) {
+            Assert.assertTrue(tak.validateMove(m));
+            if (m instanceof PlaceMove) {
+                Assert.assertFalse(m.x == 2 && m.y == 2);
+            } else if (m instanceof StackMove) {
+                stackCount += 1;
+                System.out.println(m);
+            }
+        }
+
+        Assert.assertEquals(40, stackCount);
     }
 }

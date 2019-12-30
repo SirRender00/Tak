@@ -7,7 +7,7 @@ import structures.Direction;
 import java.util.Iterator;
 
 /**
- * Pick ups a stack of size <code>pickup</code> at specified point, then
+ * Pick ups a stack of boardSize <code>pickup</code> at specified point, then
  * drops the bottom <code>vals[i]</code> one square at a time in {@link Direction}
  * <code>dir</code>, for i in length vals.
  */
@@ -42,7 +42,7 @@ public class StackMove extends Move {
             transY += dir.dy;
 
             for (int j = 0; j < val; j++) {
-                tak.getStackAt(transX, transY).addElement(trans.next());
+                tak.getStackAt(transX, transY).add(trans.next());
             }
 
             tak.updateRoadGraph(transX, transY);

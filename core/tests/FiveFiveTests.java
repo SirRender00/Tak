@@ -208,5 +208,18 @@ public class FiveFiveTests {
         System.out.println(tak.getRoadGraphString());
     }
 
-    // TODO: Make stack move tests
+    @Test
+    public void stackMove1() throws Tak.TakException {
+        // stacking produces correct size and ordering
+        Tak tak = new Tak(Tak.GameType.FIVE);
+        executeConsecutiveMoves(tak, "c2", "b3", "d3", "c4");
+
+        executeConsecutiveMoves(tak, "1b3>1", "1c2+1", "1d3<1", "1c4-1");
+        Assert.assertEquals(4, tak.getStackAt(2, 2).size());
+        for (int i = 0; i < 4; i++) {
+            Assert.assertEquals(i % 2, tak.getStackAt(2, 2).get(i + 1).player);
+        }
+
+        System.out.println(tak.getRoadGraphString());
+    }
 }

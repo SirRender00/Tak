@@ -44,7 +44,7 @@ public class RoadGraph {
 
     /**
      * Initialize the Road Graph with no one owning anything.
-     * @param size The size of the board
+     * @param size The boardSize of the board
      */
     public RoadGraph(int size) {
         this.size = size;

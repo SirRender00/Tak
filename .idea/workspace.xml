@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e50ef991-4097-460a-88a1-416a325e4673" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/base/RoadGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/RoadGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/base/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/Stack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/base/Stone.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/Stone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/base/Tak.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/Tak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/base/move/StackMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/move/StackMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/engine/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/engine/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/engine/models/TakEngineV1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/tests/FiveFiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests/FiveFiveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/tests/GenerateMovesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests/GenerateMovesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/KeyboardGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/KeyboardGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/RoadGraph$VirtualNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/RoadGraph$VirtualNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/RoadGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/RoadGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Stack$StoneIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stack$StoneIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Stack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Stone$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stone$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Stone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$GameResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$GameResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$GameType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$GameType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$TakException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$TakException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/Move.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$MoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$MoveIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$PlaceMoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$PlaceMoveIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackMoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackMoveIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsCapIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsCapIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/StackMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/StackMove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/GameTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/GameTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/models/TakEngineV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/models/TakEngineV1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/core/FiveFiveTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/core/FiveFiveTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/core/GenerateMovesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/core/GenerateMovesTest.class" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="23" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/Engine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/base/move/MoveFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7905">
+              <caret line="465" column="5" selection-start-line="465" selection-start-column="5" selection-end-line="465" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#StackValsCapIterator#0;class#MoveFactory#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/base/move/StackMove.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/tests/GenerateMovesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/GameTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding>
+                <element signature="e#551#552#0" expanded="true" />
+                <element signature="e#612#613#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/EngineLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structures/Direction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structures/Point.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structures/Tuple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>player</find>
+      <find>getCurr</find>
+      <find>size * size</find>
+      <find>safe</find>
+      <find>clone()</find>
+      <find>size()</find>
+      <find>clone</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/core/src/base/Stone.java" />
+        <option value="$PROJECT_DIR$/core/src/base/Stack.java" />
+        <option value="$PROJECT_DIR$/core/src/base/Tak.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/models/TakEngineV1.java" />
+        <option value="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" />
+        <option value="$PROJECT_DIR$/core/tests/GenerateMovesTest.java" />
+        <option value="$PROJECT_DIR$/core/src/base/move/StackMove.java" />
+        <option value="$PROJECT_DIR$/core/tests/FiveFiveTests.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/Model.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/Engine.java" />
+      </list>
+    </option>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\evynm\OneDrive\Documents\Projects\Programming\Code\Tak\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="290" />
+    <option name="y" value="-15" />
+    <option name="width" value="1755" />
+    <option name="height" value="985" />
+  </component>
+  <component name="ProjectId" id="1PZrfwuezTQameBW76EgNURzVw0" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="move" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="structures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="12" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\evynm\OneDrive\Documents\Projects\Programming\Code\Tak\core\src\base" />
+      <recent name="C:\Users\evynm\OneDrive\Documents\Projects\Programming\Code\Tak\core\src\base\move" />
+      <recent name="C:\Users\evynm\OneDrive\Documents\Projects\Programming\Code\Tak\web\fonts" />
+      <recent name="C:\Users\evynm\OneDrive\Documents\Projects\Programming\Code\Tak\web\audio" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.GenerateMovesTest">
+    <configuration name="KeyboardGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="base.KeyboardGame" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FiveFiveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FiveFiveTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FiveFiveTests.stackMove1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FiveFiveTests" />
+      <option name="METHOD_NAME" value="stackMove1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GenerateMovesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GenerateMovesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GenerateMovesTest.stackMoveGen1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GenerateMovesTest" />
+      <option name="METHOD_NAME" value="stackMoveGen1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GenerateMovesTest" />
+        <item itemvalue="JUnit.FiveFiveTests" />
+        <item itemvalue="JUnit.GenerateMovesTest.stackMoveGen1" />
+        <item itemvalue="JUnit.FiveFiveTests.stackMove1" />
+        <item itemvalue="Application.KeyboardGame" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e50ef991-4097-460a-88a1-416a325e4673" name="Default Changelist" comment="" />
+      <created>1566091437965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566091437965</updated>
+      <workItem from="1566092569823" duration="10682000" />
+      <workItem from="1566411242667" duration="2546000" />
+      <workItem from="1567478057388" duration="750000" />
+      <workItem from="1569128128380" duration="1736000" />
+      <workItem from="1574147650114" duration="1785000" />
+      <workItem from="1577174086671" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 15m 09s.xml">
+      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 19m 15s.xml">
+      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 22m 04s.xml">
+      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 22m 16s.xml">
+      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 24m 42s.xml">
+      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 24m 55s.xml">
+      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 36m 07s.xml">
+      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 37m 31s.xml">
+      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FiveFiveTests - 2019.12.29 at 14h 38m 15s.xml">
+      <configuration name="FiveFiveTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 38m 28s.xml">
+      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25586355" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.36827195" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.16288953" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.24362606" />
+      <window_info anchor="bottom" id="Style Checker" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.203966" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+        <item name="core" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>flatCount == 23 &amp;&amp; standCount == 23 &amp;&amp; capCount == 23</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>m instanceof StackMove</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>base.move.StackMove</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>!tak.validateMove(m)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/EmptyStackException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="698" column="39" lean-forward="true" selection-start-line="698" selection-start-column="39" selection-end-line="698" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="3722" column="20" lean-forward="true" selection-start-line="3722" selection-start-column="20" selection-end-line="3722" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="563" column="30" lean-forward="true" selection-start-line="563" selection-start-column="30" selection-end-line="563" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/KeyboardGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/move/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#948#949#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding>
+            <element signature="docComment;method#Stack#0;class#Stack#0" />
+            <element signature="method#Stack#0;class#Stack#0" />
+            <element signature="docComment;method#peek#0;class#Stack#0" />
+            <element signature="method#peek#0;class#Stack#0" />
+            <element signature="docComment;method#isEmpty#0;class#Stack#0" />
+            <element signature="docComment;method#tSize#0;class#Stack#0" />
+            <element signature="docComment;method#size#0;class#Stack#0" />
+            <element signature="docComment;method#removeRange#0;class#Stack#0" />
+            <element signature="method#removeRange#0;class#Stack#0" />
+            <element signature="docComment;method#stoneIterator#0;class#Stack#0" />
+            <element signature="method#stoneIterator#0;class#Stack#0" />
+            <element signature="class#StoneIterator#0;class#Stack#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/Stone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding>
+            <element signature="e#539#540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/Tak.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="339" column="7" selection-start-line="339" selection-start-column="7" selection-end-line="339" selection-end-column="7" />
+          <folding>
+            <element signature="docComment;class#Tak#0" />
+            <element signature="docComment;method#Tak#0;class#Tak#0" />
+            <element signature="method#Tak#0;class#Tak#0" />
+            <element signature="docComment;method#copy#0;class#Tak#0" />
+            <element signature="method#Tak#1;class#Tak#0" />
+            <element signature="docComment;method#getStackAt#0;class#Tak#0" />
+            <element signature="method#getStackAt#0;class#Tak#0" />
+            <element signature="docComment;method#boardSize#0;class#Tak#0" />
+            <element signature="docComment;method#getCurrentPlayerIndex#0;class#Tak#0" />
+            <element signature="docComment;method#getCurrentPlayer#0;class#Tak#0" />
+            <element signature="docComment;method#isFirstMove#0;class#Tak#0" />
+            <element signature="docComment;method#lock#0;class#Tak#0" />
+            <element signature="docComment;method#unlock#0;class#Tak#0" />
+            <element signature="docComment;method#getStonePlayer#0;class#Tak#0" />
+            <element signature="method#getStonePlayer#0;class#Tak#0" />
+            <element signature="docComment;method#isGameOver#0;class#Tak#0" />
+            <element signature="docComment;method#getGameResult#0;class#Tak#0" />
+            <element signature="docComment;method#checkWin#0;class#Tak#0" />
+            <element signature="method#checkWin#0;class#Tak#0" />
+            <element signature="docComment;method#isRoadWin#0;class#Tak#0" />
+            <element signature="docComment;method#isRoadWinG#0;class#Tak#0" />
+            <element signature="method#isRoadWinG#0;class#Tak#0" />
+            <element signature="docComment;method#flatStoneWin#0;class#Tak#0" />
+            <element signature="method#flatStoneWin#0;class#Tak#0" />
+            <element signature="docComment;method#safeExecuteMove#0;class#Tak#0" />
+            <element signature="method#safeExecuteMove#0;class#Tak#0" />
+            <element signature="docComment;method#executeMove#0;class#Tak#0" />
+            <element signature="method#executeMove#0;class#Tak#0" />
+            <element signature="docComment;method#validateMove#0;class#Tak#0" />
+            <element signature="e#9154#9155#0" expanded="true" />
+            <element signature="e#9216#9217#0" expanded="true" />
+            <element signature="docComment;method#validateMove#1;class#Tak#0" />
+            <element signature="method#validateMove#1;class#Tak#0" />
+            <element signature="docComment;method#inBounds#0;class#Tak#0" />
+            <element signature="docComment;method#inBounds#1;class#Tak#0" />
+            <element signature="docComment;method#validatePlaceMove#0;class#Tak#0" />
+            <element signature="method#validatePlaceMove#0;class#Tak#0" />
+            <element signature="docComment;method#validateStackMove#0;class#Tak#0" />
+            <element signature="method#validateStackMove#0;class#Tak#0" />
+            <element signature="docComment;method#getRoadGraphString#0;class#Tak#0" />
+            <element signature="docComment;method#updateRoadGraph#0;class#Tak#0" />
+            <element signature="method#updateRoadGraph#0;class#Tak#0" />
+            <element signature="docComment;class#Player#0;class#Tak#0" />
+            <element signature="class#Player#0;class#Tak#0" />
+            <element signature="docComment;method#Player#0;class#Player#0;class#Tak#0" />
+            <element signature="method#Player#0;class#Player#0;class#Tak#0" />
+            <element signature="docComment;method#Player#1;class#Player#0;class#Tak#0" />
+            <element signature="method#Player#1;class#Player#0;class#Tak#0" />
+            <element signature="docComment;method#getRemainingStones#0;class#Player#0;class#Tak#0" />
+            <element signature="method#getRemainingStones#0;class#Player#0;class#Tak#0" />
+            <element signature="docComment;class#GameType#0;class#Tak#0" />
+            <element signature="class#GameType#0;class#Tak#0" />
+            <element signature="docComment;class#GameResult#0;class#Tak#0" />
+            <element signature="class#GameResult#0;class#Tak#0" />
+            <element signature="class#TakException#0;class#Tak#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/models/TakEngineV1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+          <folding>
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/tests/FiveFiveTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/move/MoveFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7905">
+          <caret line="465" column="5" selection-start-line="465" selection-start-column="5" selection-end-line="465" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#StackValsCapIterator#0;class#MoveFactory#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/move/StackMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/tests/GenerateMovesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/GameTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/EngineLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

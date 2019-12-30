@@ -2,7 +2,8 @@ package base;
 
 /**
  * Core piece of the Tak game. Stones are owned by players
- * and can be any one of the three {@link Type}: FLAT, STANDING, or CAP.
+ * and can be of any one of the three {@link Type}: <code>FLAT</code>,
+ * <code>STANDING</code>, or <code>CAP</code>.
  */
 public class Stone {
 
@@ -19,16 +20,14 @@ public class Stone {
     }
 
     /**
-     * A copy of a stone.
-     * @param stone The stone to copy
+     * @return A copy of this stone.
      */
-    public Stone(Stone stone) {
-        this.type = stone.type;
-        this.player = stone.player;
+    public Stone copy() {
+        return new Stone(player, type);
     }
 
     /**
-     * Make this stone flat
+     * Make this stone of type <code>FLAT</code>.
      */
     public void flatten() {
         type = Type.FLAT;

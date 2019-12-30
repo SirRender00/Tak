@@ -4,14 +4,7 @@ import base.Stone;
 import base.Tak;
 import structures.Direction;
 
-import java.text.CollationElementIterator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Collections;
-import java.util.NoSuchElementException;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * Utility functions related to the generation of Tak {@link Move} objects.
@@ -30,7 +23,7 @@ public final class MoveFactory {
      * A map of [number of pieces --> a map of (number of spaces --> list of all permutations)]
      * Used so we don't have to compute stack permutations all the time.
      */
-    private static HashMap<Integer, HashMap<Integer, List<int[]>>> allStackVals = new HashMap<>();
+    private static Map<Integer, Map<Integer, List<int[]>>> allStackVals = new HashMap<>();
 
     /**
      * @param x The x coord of the move
@@ -218,7 +211,7 @@ public final class MoveFactory {
      * If x,y is out of bounds then this function has undefined behavior.
      */
     private static int lengthToNearestStop(Tak tak, int x, int y, Direction dir) {
-        for (int i = 0; i < tak.size(); i++) {
+        for (int i = 0; i < tak.boardSize(); i++) {
             x += dir.dx;
             y += dir.dy;
 
@@ -228,7 +221,7 @@ public final class MoveFactory {
             }
         }
 
-        return tak.size() - 1;
+        return tak.boardSize() - 1;
     }
 
     /**
@@ -326,8 +319,8 @@ public final class MoveFactory {
             // by incrementing y
             m = 0;
             y += 1;
-            for (int i = x; i < tak.size(); i++) {
-                for (int j = y; j < tak.size(); j++) {
+            for (int i = x; i < tak.boardSize(); i++) {
+                for (int j = y; j < tak.boardSize(); j++) {
                     if (tak.getStackAt(i, j).isEmpty()) {
                         x = i;
                         y = j;
@@ -399,7 +392,7 @@ public final class MoveFactory {
         void prepareStack() {
             while (!vIter.hasNext()) {
                 if (vIter.spaces == 0 // boxed in for this direction
-                        || n >= tak.getStackAt(u, v).size() || n >= tak.size()) { // done with all pickups
+                        || n >= tak.getStackAt(u, v).size() || n >= tak.boardSize()) { // done with all pickups
                     d += 1; // move on to next direction
                     n = 1;
                 } else { // done with picking up n
@@ -413,7 +406,7 @@ public final class MoveFactory {
                     // we can reach the piece that stopped us, and
                     // the piece that stopped us is a standing stone
                     if (tak.getStackAt(u, v).peek().type.equals(Stone.Type.CAP)
-                            && stop + 1 < tak.size()
+                            && stop + 1 < tak.boardSize()
                             && n >= stop + 1
                             && tak.getStackAt(u + (stop + 1) * dir.dx, v + (stop + 1) * dir.dy)
                             .peek().type.equals(Stone.Type.STANDING)) {
@@ -445,9 +438,9 @@ public final class MoveFactory {
          * @return True if we were able to find a current-player-owned stack, false otherwise.
          */
         boolean findNextStack() {
-            for (int i = u; i < tak.size(); i++) {
+            for (int i = u; i < tak.boardSize(); i++) {
                 v += 1; // increment v to keep on moving
-                for (int j = v; j < tak.size(); j++) {
+                for (int j = v; j < tak.boardSize(); j++) {
                     if (tak.getStackAt(i, j).peek().player == tak.getCurrentPlayerIndex()) {
                         u = i;
                         v = j;
@@ -473,8 +466,8 @@ public final class MoveFactory {
     }
 
     /**
-     * Iterates through all possible splitting of a stack of size {@code n}
-     * for splits ranging from {@code minSize} to {@code size} (inclusive).
+     * Iterates through all possible splitting of a stack of boardSize {@code n}
+     * for splits ranging from {@code minSize} to {@code boardSize} (inclusive).
      * (Default for {@code minSize} is 1.)
      */
     private static class StackValsIterator implements Iterator<int[]> {
@@ -483,7 +476,7 @@ public final class MoveFactory {
          * Fixed stack, variable spaces.
          * Map of number of spaces --> List of all permutations
          */
-        HashMap<Integer, List<int[]>> FSVS;
+        Map<Integer, List<int[]>> FSVS;
         Iterator<int[]> currIter = Collections.emptyIterator();
 
         int spaces;
@@ -491,7 +484,7 @@ public final class MoveFactory {
         int n;
 
         /**
-         * Iterates through all possible splitting of a stack of size {@code n}
+         * Iterates through all possible splitting of a stack of boardSize {@code n}
          * for splits ranging from {@code minSpaces} to {@code spaces} (inclusive).
          * (Default for {@code minSpaces} is 1.) This constructor is exactly the same
          * as calling {@code StackValsIterator(n, 1, spaces)}.
@@ -504,7 +497,7 @@ public final class MoveFactory {
         }
 
         /**
-         * Iterates through all possible splitting of a stack of size {@code n}
+         * Iterates through all possible splitting of a stack of boardSize {@code n}
          * for splits ranging from {@code minSpaces} to {@code spaces} (inclusive).
          *
          * @param n The stack pickup amount
@@ -512,11 +505,6 @@ public final class MoveFactory {
          * @param spaces The max amount of spaces to partition up to
          */
         StackValsIterator(int n, int minSpaces, int spaces) {
-            if (!allStackVals.containsKey(n)) {
-                allStackVals.put(n, new HashMap<>());
-            }
-
-            FSVS = allStackVals.get(n);
             this.n = n;
             this.spaces = spaces;
             this.minSpaces = minSpaces;
@@ -525,20 +513,34 @@ public final class MoveFactory {
                 return;
             }
 
+            if (!allStackVals.containsKey(n)) {
+                allStackVals.put(n, new HashMap<>());
+            }
+
+            FSVS = allStackVals.get(n);
+
             prepareStackVals();
         }
 
         void prepareStackVals() {
             if (!currIter.hasNext() && minSpaces <= spaces && minSpaces <= n) {
                 if (!FSVS.containsKey(minSpaces)) {
-                    List<int[]> partitions = new ArrayList<>();
+                    ArrayList<int[]> partitions = new ArrayList<>();
                     FSVS.put(minSpaces, partitions);
 
+                    Set<Integer> alreadySeen = new HashSet<>(); // hashcode of arrays computed differently
                     // compute partitions adding to n using exactly minSize partitions
                     List<int[]> uniquePartitions = getPartitions(n, minSpaces, n - minSpaces + 1);
                     for (int[] vals : uniquePartitions) {
-                        partitions.addAll(getPermutations(vals));
+                        for (int[] permutation : getPermutations(vals)) {
+                            if (!alreadySeen.contains(Arrays.hashCode(permutation))) {
+                                partitions.add(permutation);
+                                alreadySeen.add(Arrays.hashCode(permutation));
+                            }
+                        }
                     }
+
+                    partitions.trimToSize(); // save memory
                 }
 
                 currIter = FSVS.get(minSpaces).iterator();
@@ -629,7 +631,7 @@ public final class MoveFactory {
     /**
      * Special case of {@code StackValsIterator} with a cap stone flattening a standing stone.
      * Includes a regular stack iterator of everything up to but not including the
-     * standing stone, plus a regular stack iterator of {@code minSize} size minus a piece so
+     * standing stone, plus a regular stack iterator of {@code minSize} boardSize minus a piece so
      * we can append a 1 to resulting vals array to flatten the standing stone.
      */
     private static class StackValsCapIterator extends StackValsIterator {

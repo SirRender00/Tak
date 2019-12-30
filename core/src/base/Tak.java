@@ -9,9 +9,9 @@ import java.util.ConcurrentModificationException;
 
 /**
  * The main class that represents a full Tak game. Instantiate this
- * class with a {@link GameType} which is designated by board size
+ * class with a {@link GameType} which is designated by board boardSize
  * (default is five by five). The game progresses by passing in a {@link Move}
- * to {@code Tak.executeSafeMove(...)} (or {@code Tak.executeMove(...)} to
+ * to {@code Tak.safeExecuteMove(...)} (or {@code Tak.executeMove(...)} to
  * turn off validity checks). Once the game has reached an end condition --
  * (as specified by the <a href="http://cheapass.com/wp-content/uploads/2016/07/Tak-Beta-Rules.pdf">rules</a>) --
  * {@code getResult()} will return the corresponding {@link GameResult}. <br> <br>
@@ -34,7 +34,7 @@ public class Tak {
     private boolean isLocked = false;
 
     /**
-     * @param type The GameType that specifies the board size
+     * @param type The GameType that specifies the board boardSize
      *             and player stone amounts.
      */
     public Tak(GameType type) {
@@ -43,7 +43,7 @@ public class Tak {
         board = new Stack[gameType.size][gameType.size];
         for (int i = 0; i < gameType.size; i++) {
             for (int j = 0; j < gameType.size; j++) {
-                board[i][j] = new Stack(gameType.size);
+                board[i][j] = new Stack(gameType.size, gameType.size / 2);
             }
         }
 
@@ -63,7 +63,7 @@ public class Tak {
         board = new Stack[gameType.size][gameType.size];
         for (int i = 0; i < gameType.size; i++) {
             for (int j = 0; j < gameType.size; j++) {
-                board[i][j] = new Stack(other.board[i][j]);
+                board[i][j] = other.board[i][j].copy();
             }
         }
 
@@ -95,7 +95,7 @@ public class Tak {
     /**
      * @return The size of the board
      */
-    public int size() {
+    public int boardSize() {
         return gameType.size;
     }
 
@@ -121,16 +121,17 @@ public class Tak {
     }
 
     /**
+     * Locks the current state of the <code>Tak</code> instance.
      * Locking a tak instance, then trying to execute a move will
-     * result in a ConcurrentModificationException.
-     * Ensures that this tak instance will not change.
+     * result in a <code>ConcurrentModificationException</code>.
+     * Ensures that this <code>Tak</code> instance will not change.
      */
     public void lock() {
         isLocked = true;
     }
 
     /**
-     * Allow modifications to the tak instance after locking it.
+     * Allow modifications to this <code>Tak</code> instance after locking it.
      */
     public void unlock() {
         isLocked = false;
@@ -138,8 +139,8 @@ public class Tak {
 
     /**
      * @return The player index who "owns" the stone being played.
-     * (Read on the rules of Tak about the first moves the
-     * of game being played differently.)
+     * (Read on the <a href="http://cheapass.com/wp-content/uploads/2016/07/Tak-Beta-Rules.pdf">rules</a>
+     * about how the first moves of the game are played differently.)
      */
     public int getStonePlayer() {
         if (firstMove) {
@@ -147,14 +148,6 @@ public class Tak {
         } else {
             return currentPlayer;
         }
-    }
-
-    /**
-     * @return The current {@link RoadGraph} representation
-     * of the game.
-     */
-    public RoadGraph getRoadGraph() {
-        return roadGraph;
     }
 
     /**
@@ -206,7 +199,7 @@ public class Tak {
     }
 
     /**
-     * Implementation of road win by means of a graph, and DFS.
+     * Implementation of road win by means of a graph and DFS.
      *
      * @param player The player to check the road win for
      * @return {@code true} if and only if {@code player} has won by a road
@@ -334,7 +327,7 @@ public class Tak {
 
     /**
      * @param n The variable to check
-     * @return {@code true} if and only if {@code 0 <= n < board size}.
+     * @return {@code true} if and only if {@code 0 <= n < board boardSize}.
      */
     public boolean inBounds(int n) {
         return n >= 0 && n < gameType.size;
@@ -500,10 +493,10 @@ public class Tak {
         }
 
         /**
-         * @param type The type of stone to query
-         * @return The amount of stones of the specified type
-         * (FLAT and STANDING stones are the same type of stone for
-         * this purpose)
+         * @param type The type of stone to query.
+         * @return The amount of stones of the specified type.
+         * (<code>FLAT</code> and <code>STANDING</code> stones are the same type of stone for
+         * this purpose.)
          */
         public int getRemainingStones(Stone.Type type) {
             if (type.equals(Stone.Type.FLAT) || type.equals(Stone.Type.STANDING)) {
@@ -518,11 +511,14 @@ public class Tak {
 
     /**
      * A {@code GameType} instantiates a Tak game
-     * by specifying board size, starting side stone amount, and
+     * by specifying board boardSize, starting side stone amount, and
      * starting cap stone amounts.
      */
     public enum GameType {
 
+        /**
+         * 5x5 board with 21 side stones and 1 cap stone.
+         */
         FIVE(21, 1, 5);
 
         int sideStones;

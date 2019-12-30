@@ -5,9 +5,11 @@ import java.util.Vector;
 import java.util.EmptyStackException;
 
 /**
- * The stack is a collection of {@link Stone} objects.
- * Every stack is initialized with sentinel stone at the
- * start of type FLAT, owned by player -1.
+ * A <code>Stack</code> is a collection of {@link Stone} objects.
+ * <br><br>
+ *
+ * We maintain the invariant that at index 0 of this vector is always
+ * a sentinel stone of type <code>FLAT</code>, owned by player -1.
  */
 public class Stack extends Vector<Stone> {
 
@@ -15,27 +17,26 @@ public class Stack extends Vector<Stone> {
      * Creates an "empty" Stack with initial capacity
      * (as specified by the Vector class).
      */
-    public Stack(int initialCapacity) {
-        super(initialCapacity);
-        addElement(new Stone(-1, Stone.Type.FLAT));
+    public Stack(int initialCapacity, int capacityIncrement) {
+        super(initialCapacity, capacityIncrement);
+        add(new Stone(-1, Stone.Type.FLAT));
     }
 
     /**
-     * A deep copy of a stack
-     * @param stack The stack to copy
+     * @return a copy of this Stack
      */
-    public Stack(Stack stack) {
-        super(stack.capacity());
-        for (Stone stone : stack) {
-            addElement(new Stone(stone));
+    public Stack copy() {
+        Stack copy = new Stack(capacity(), capacityIncrement);
+        for (Stone stone : this) {
+            copy.add(stone.copy());
         }
+        return copy;
     }
 
     /**
      * Looks at the stone at the top of this stack without removing it.
      *
-     * @return  the stone at the top of this stack (the last item
-     *          of the {@code Vector} object).
+     * @return  the stone at the top of this stack.
      */
     public synchronized Stone peek() {
         int len = tSize();
@@ -52,6 +53,7 @@ public class Stack extends Vector<Stone> {
      * @return  {@code true} if and only if this stack contains
      *          no player-owned stones; {@code false} otherwise.
      */
+    @Override
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -61,7 +63,7 @@ public class Stack extends Vector<Stone> {
      * Identical to <code>Vector.size()</code>. See
      * <code>Stack.size()</code> for the number of
      * player-owned stones in this stack.
-     * @return The "technical" size of this stack.
+     * @return The "technical" boardSize of this stack.
      */
     public int tSize() {
         return super.size();
@@ -69,7 +71,7 @@ public class Stack extends Vector<Stone> {
 
     /**
      * See <code>tSize()</code> if looking for the "technical"
-     * size of this stack, i.e. including the sentinel stone.
+     * boardSize of this stack, i.e. including the sentinel stone.
      * @return The number of player-owned stones in this stack.
      */
     @Override
@@ -77,6 +79,14 @@ public class Stack extends Vector<Stone> {
         return tSize() - 1;
     }
 
+    /**
+     * Removes stones starting from <code>fromIndex</code>, inclusive, all the way to
+     * <code>toIndex</code>, exclusive. Removes <code>toIndex</code> - <code>fromIndex</code>
+     * stones. (Note <code>fromIndex</code> can never be 0, we cannot remove the sentinel stone.)
+     * @param fromIndex index of first element to remove, inclusive.
+     * @param toIndex index of last element to remove, exclusive.
+     * @throws IllegalArgumentException if <code>fromIndex</code> is 0.
+     */
     @Override
     public void removeRange(int fromIndex, int toIndex) {
         if (fromIndex == 0) {
@@ -86,14 +96,20 @@ public class Stack extends Vector<Stone> {
     }
 
     /**
+     * This method allows us to iterate over the top n stones
+     * with the top stone being last.
      * @param n the number of stones from the top
      * @return An iterator over the last n stones
+     * @throws IllegalArgumentException if n > <code>size()</code>.
      */
     public Iterator<Stone> stoneIterator(int n) {
+        if (n > size()) {
+            throw new IllegalArgumentException("Not enough player stones to iterate over.");
+        }
         return new StoneIterator(tSize() - n);
     }
 
-    public class StoneIterator implements Iterator<Stone> {
+    private class StoneIterator implements Iterator<Stone> {
         int n;
 
         StoneIterator(int n) {
