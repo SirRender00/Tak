@@ -2,42 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e50ef991-4097-460a-88a1-416a325e4673" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/engine/EngineGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/engine/GameTreeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/engine/models/TrivialModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/structures/MaxPQ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/structures/Utilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/tests/EngineTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/base/RoadGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/RoadGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/base/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/Stack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/base/Stone.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/Stone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/base/Tak.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/Tak.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/base/move/PlaceMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/move/PlaceMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/base/move/StackMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/move/StackMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/engine/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/engine/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/engine/models/TakEngineV1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/engine/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/engine/EngineLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/engine/GameTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/engine/GameTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/structures/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structures/Tuple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/tests/FiveFiveTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests/FiveFiveTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/tests/GenerateMovesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests/GenerateMovesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/KeyboardGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/KeyboardGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/RoadGraph$VirtualNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/RoadGraph$VirtualNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/RoadGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/RoadGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/Stack$StoneIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stack$StoneIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/Stack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stack.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/Stone$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stone$Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/Stone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Stone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$GameResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$GameResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$GameType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$GameType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$TakException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$TakException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/Move.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$MoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$MoveIterator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$PlaceMoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$PlaceMoveIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackMoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackMoveIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsCapIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsCapIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsIterator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/base/move/PlaceMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/PlaceMove.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/StackMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/StackMove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/Engine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/Engine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/EngineLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/GameTree$ChildIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/GameTree$ChildIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/engine/GameTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/GameTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/engine/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/engine/models/TakEngineV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/models/TakEngineV1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/Model-Evyn-PC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/Model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/engine/models/TakEngineV1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/core/structures/Tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/structures/Tuple.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/core/FiveFiveTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/core/FiveFiveTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/core/GenerateMovesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/core/GenerateMovesTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/core/META-INF/core.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/core/META-INF/core.kotlin_module" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,19 +60,155 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/engine/Model.java">
+        <entry file="file://$PROJECT_DIR$/core/src/base/Tak.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="23" selection-end-column="43" />
+            <state relative-caret-position="493">
+              <caret line="424" selection-start-line="424" selection-end-line="424" />
+              <folding>
+                <element signature="docComment;class#Tak#0" />
+                <element signature="docComment;method#Tak#0;class#Tak#0" />
+                <element signature="method#Tak#0;class#Tak#0" />
+                <element signature="docComment;method#getStackAt#0;class#Tak#0" />
+                <element signature="docComment;method#boardSize#0;class#Tak#0" />
+                <element signature="e#3244#3245#0" expanded="true" />
+                <element signature="e#3280#3281#0" expanded="true" />
+                <element signature="docComment;method#getCurrentPlayerIndex#0;class#Tak#0" />
+                <element signature="e#3388#3389#0" expanded="true" />
+                <element signature="e#3424#3425#0" expanded="true" />
+                <element signature="docComment;method#getCurrentPlayer#0;class#Tak#0" />
+                <element signature="docComment;method#isFirstMove#0;class#Tak#0" />
+                <element signature="docComment;method#lock#0;class#Tak#0" />
+                <element signature="docComment;method#unlock#0;class#Tak#0" />
+                <element signature="docComment;method#getStonePlayer#0;class#Tak#0" />
+                <element signature="method#getStonePlayer#0;class#Tak#0" />
+                <element signature="docComment;method#isGameOver#0;class#Tak#0" />
+                <element signature="e#4854#4855#0" expanded="true" />
+                <element signature="e#4911#4912#0" expanded="true" />
+                <element signature="docComment;method#getGameResult#0;class#Tak#0" />
+                <element signature="docComment;method#checkWin#0;class#Tak#0" />
+                <element signature="docComment;method#isRoadWin#0;class#Tak#0" />
+                <element signature="e#6090#6091#0" expanded="true" />
+                <element signature="e#6131#6132#0" expanded="true" />
+                <element signature="docComment;method#isRoadWinG#0;class#Tak#0" />
+                <element signature="docComment;method#flatStoneWin#0;class#Tak#0" />
+                <element signature="method#flatStoneWin#0;class#Tak#0" />
+                <element signature="docComment;method#safeExecuteMove#0;class#Tak#0" />
+                <element signature="docComment;method#executeMove#0;class#Tak#0" />
+                <element signature="docComment;method#validateMove#0;class#Tak#0" />
+                <element signature="docComment;method#validateMove#1;class#Tak#0" />
+                <element signature="docComment;method#inBounds#0;class#Tak#0" />
+                <element signature="e#10517#10518#0" expanded="true" />
+                <element signature="e#10567#10568#0" expanded="true" />
+                <element signature="docComment;method#inBounds#1;class#Tak#0" />
+                <element signature="docComment;method#validatePlaceMove#0;class#Tak#0" />
+                <element signature="method#validatePlaceMove#0;class#Tak#0" />
+                <element signature="docComment;method#validateStackMove#0;class#Tak#0" />
+                <element signature="docComment;method#getRoadGraphString#0;class#Tak#0" />
+                <element signature="docComment;method#updateRoadGraph#0;class#Tak#0" />
+                <element signature="docComment;class#Player#0;class#Tak#0" />
+                <element signature="docComment;method#Player#0;class#Player#0;class#Tak#0" />
+                <element signature="method#Player#0;class#Player#0;class#Tak#0" />
+                <element signature="docComment;method#Player#1;class#Player#0;class#Tak#0" />
+                <element signature="method#Player#1;class#Player#0;class#Tak#0" />
+                <element signature="docComment;method#getRemainingStones#0;class#Player#0;class#Tak#0" />
+                <element signature="method#getRemainingStones#0;class#Player#0;class#Tak#0" />
+                <element signature="docComment;class#GameType#0;class#Tak#0" />
+                <element signature="class#GameType#0;class#Tak#0" />
+                <element signature="docComment;class#GameResult#0;class#Tak#0" />
+                <element signature="class#GameResult#0;class#Tak#0" />
+                <element signature="class#TakException#0;class#Tak#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/base/Stack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+              <folding>
+                <element signature="docComment;method#Stack#0;class#Stack#0" />
+                <element signature="docComment;method#peek#0;class#Stack#0" />
+                <element signature="docComment;method#isEmpty#0;class#Stack#0" />
+                <element signature="e#1682#1683#0" expanded="true" />
+                <element signature="e#1717#1718#0" expanded="true" />
+                <element signature="docComment;method#size#0;class#Stack#0" />
+                <element signature="e#1966#1967#0" expanded="true" />
+                <element signature="e#2005#2006#0" expanded="true" />
+                <element signature="method#removeRange#0;class#Stack#0" />
+                <element signature="e#3088#3089#0" expanded="true" />
+                <element signature="e#3119#3120#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/tests/EngineTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/engine/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="317">
+              <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/tests/GenerateMovesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="732">
+              <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/EngineGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="21" column="71" lean-forward="true" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,10 +219,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/base/move/MoveFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7905">
-              <caret line="465" column="5" selection-start-line="465" selection-start-column="5" selection-end-line="465" selection-end-column="5" />
+            <state relative-caret-position="279">
+              <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1111#1112#0" expanded="true" />
+                <element signature="e#1159#1160#0" expanded="true" />
+                <element signature="e#6541#6542#0" expanded="true" />
+                <element signature="e#6585#6586#0" expanded="true" />
+                <element signature="e#8124#8125#0" expanded="true" />
+                <element signature="e#8159#8160#0" expanded="true" />
+                <element signature="e#10809#10810#0" expanded="true" />
+                <element signature="e#10852#10853#0" expanded="true" />
+                <element signature="e#16059#16060#0" expanded="true" />
+                <element signature="e#16101#16102#0" expanded="true" />
                 <element signature="docComment;class#StackValsCapIterator#0;class#MoveFactory#0" />
               </folding>
             </state>
@@ -85,71 +240,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/base/move/StackMove.java">
+        <entry file="file://$PROJECT_DIR$/core/tests/FiveFiveTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/tests/GenerateMovesTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            <state relative-caret-position="170">
+              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/engine/GameTree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-              <folding>
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#612#613#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/engine/EngineLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structures/Direction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structures/Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structures/Tuple.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -161,8 +258,8 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -173,8 +270,9 @@
       <find>size * size</find>
       <find>safe</find>
       <find>clone()</find>
-      <find>size()</find>
       <find>clone</find>
+      <find>iterator</find>
+      <find>size()</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -183,16 +281,34 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/base/Stone.java" />
-        <option value="$PROJECT_DIR$/core/src/base/Stack.java" />
-        <option value="$PROJECT_DIR$/core/src/base/Tak.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/Model.java" />
         <option value="$PROJECT_DIR$/core/src/engine/models/TakEngineV1.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/GameTree.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/TakEngineV1.java" />
+        <option value="$PROJECT_DIR$/core/src/structures/Tuple.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/GameTreeHandler.java" />
+        <option value="$PROJECT_DIR$/core/src/structures/MaxPQ.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/Engine.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/engines/BasicEngine.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/models/Model.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/models/TrivialModel.java" />
+        <option value="$PROJECT_DIR$/core/tests/MinMaxDepthEngineTest.java" />
+        <option value="$PROJECT_DIR$/core/src/base/Stone.java" />
+        <option value="$PROJECT_DIR$/core/src/base/KeyboardGame.java" />
+        <option value="$PROJECT_DIR$/core/src/base/RoadGraph.java" />
+        <option value="$PROJECT_DIR$/core/src/base/move/PlaceMove.java" />
+        <option value="$PROJECT_DIR$/core/tests/FiveFiveTests.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/models/TrivialBoardControlModel.java" />
         <option value="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" />
         <option value="$PROJECT_DIR$/core/tests/GenerateMovesTest.java" />
         <option value="$PROJECT_DIR$/core/src/base/move/StackMove.java" />
-        <option value="$PROJECT_DIR$/core/tests/FiveFiveTests.java" />
-        <option value="$PROJECT_DIR$/core/src/engine/Model.java" />
-        <option value="$PROJECT_DIR$/core/src/engine/Engine.java" />
+        <option value="$PROJECT_DIR$/core/tests/EngineTests.java" />
+        <option value="$PROJECT_DIR$/core/src/structures/Utilities.java" />
+        <option value="$PROJECT_DIR$/core/src/base/Stack.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java" />
+        <option value="$PROJECT_DIR$/core/src/base/Tak.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/EngineGame.java" />
       </list>
     </option>
   </component>
@@ -221,8 +337,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,6 +372,20 @@
               <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
+              <item name="engines" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="structures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -265,10 +393,21 @@
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -286,6 +425,10 @@
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="engine.models" />
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\evynm\OneDrive\Documents\Projects\Programming\Code\Tak\core\src\base" />
       <recent name="C:\Users\evynm\OneDrive\Documents\Projects\Programming\Code\Tak\core\src\base\move" />
@@ -305,13 +448,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GenerateMovesTest">
-    <configuration name="KeyboardGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="base.KeyboardGame" />
+  <component name="RunManager" selected="Application.EngineGame">
+    <configuration name="EngineGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="engine.EngineGame" />
       <module name="core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="base.*" />
+          <option name="PATTERN" value="engine.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -319,21 +462,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FiveFiveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in core" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="core" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FiveFiveTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FiveFiveTests.stackMove1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FiveFiveTests" />
-      <option name="METHOD_NAME" value="stackMove1" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -347,11 +479,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenerateMovesTest.stackMoveGen1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GenerateMovesTest.stackGame1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="core" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GenerateMovesTest" />
-      <option name="METHOD_NAME" value="stackMoveGen1" />
+      <option name="METHOD_NAME" value="stackGame1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GenerateMovesTest.stackMoveGen4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GenerateMovesTest" />
+      <option name="METHOD_NAME" value="stackMoveGen4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -359,11 +501,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EngineGame" />
+        <item itemvalue="JUnit.All in core" />
+        <item itemvalue="JUnit.GenerateMovesTest.stackGame1" />
         <item itemvalue="JUnit.GenerateMovesTest" />
-        <item itemvalue="JUnit.FiveFiveTests" />
-        <item itemvalue="JUnit.GenerateMovesTest.stackMoveGen1" />
-        <item itemvalue="JUnit.FiveFiveTests.stackMove1" />
-        <item itemvalue="Application.KeyboardGame" />
+        <item itemvalue="JUnit.GenerateMovesTest.stackMoveGen4" />
       </list>
     </recent_temporary>
   </component>
@@ -387,35 +529,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 15m 09s.xml">
-      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    <history-entry file="GenerateMovesTest_stackGame1 - 2020.03.22 at 21h 54m 09s.xml">
+      <configuration name="GenerateMovesTest.stackGame1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 19m 15s.xml">
-      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    <history-entry file="GenerateMovesTest_stackGame1 - 2020.03.22 at 21h 54m 21s.xml">
+      <configuration name="GenerateMovesTest.stackGame1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 22m 04s.xml">
-      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    <history-entry file="GenerateMovesTest_stackGame1 - 2020.03.22 at 21h 54m 34s.xml">
+      <configuration name="GenerateMovesTest.stackGame1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 22m 16s.xml">
-      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    <history-entry file="GenerateMovesTest_stackGame1 - 2020.03.22 at 21h 54m 42s.xml">
+      <configuration name="GenerateMovesTest.stackGame1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 24m 42s.xml">
-      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    <history-entry file="GenerateMovesTest_stackGame1 - 2020.03.22 at 21h 58m 31s.xml">
+      <configuration name="GenerateMovesTest.stackGame1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 24m 55s.xml">
-      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    <history-entry file="GenerateMovesTest_stackGame1 - 2020.03.22 at 22h 00m 04s.xml">
+      <configuration name="GenerateMovesTest.stackGame1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest_stackMoveGen1 - 2019.12.29 at 14h 36m 07s.xml">
-      <configuration name="GenerateMovesTest.stackMoveGen1" configurationId="JUnit" />
+    <history-entry file="All_in_core - 2020.03.22 at 22h 00m 10s.xml">
+      <configuration name="All in core" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 37m 31s.xml">
-      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    <history-entry file="All_in_core - 2020.03.23 at 00h 10m 16s.xml">
+      <configuration name="All in core" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FiveFiveTests - 2019.12.29 at 14h 38m 15s.xml">
-      <configuration name="FiveFiveTests" configurationId="JUnit" />
+    <history-entry file="All_in_core - 2020.03.23 at 16h 20m 32s.xml">
+      <configuration name="All in core" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GenerateMovesTest - 2019.12.29 at 14h 38m 28s.xml">
-      <configuration name="GenerateMovesTest" configurationId="JUnit" />
+    <history-entry file="All_in_core - 2020.03.23 at 17h 57m 45s.xml">
+      <configuration name="All in core" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -429,9 +571,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25586355" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3065032" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -439,17 +580,17 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.36827195" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.16288953" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3672806" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33586133" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.16251354" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.24362606" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.10942578" />
       <window_info anchor="bottom" id="Style Checker" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.203966" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.20368364" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -508,6 +649,21 @@
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
       <expression>
+        <expression-string>u == 2 &amp;&amp; v == 0 &amp;&amp; n == 1</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node == 8</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node == 9</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>flatCount == 23 &amp;&amp; standCount == 23 &amp;&amp; capCount == 23</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -533,13 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="698" column="39" lean-forward="true" selection-start-line="698" selection-start-column="39" selection-end-line="698" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -554,17 +703,215 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/main.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="178" column="16" selection-start-line="178" selection-start-column="16" selection-end-line="178" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/GameTreeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/TakEngineV1.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/engine/EngineLoader.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Comparators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Comparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="356" column="56" selection-start-line="356" selection-start-column="56" selection-end-line="356" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/GameTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="37" column="53" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/engines/BasicEngine.java" />
+    <entry file="file://$PROJECT_DIR$/core/tests/MinMaxDepthEngineTest.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="457" column="16" selection-start-line="457" selection-start-column="16" selection-end-line="457" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="371" column="29" selection-start-line="371" selection-start-column="29" selection-end-line="371" selection-end-column="29" />
+          <folding>
+            <element signature="e#13877#13878#0" expanded="true" />
+            <element signature="e#13945#13946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/Stone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/base/KeyboardGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        <state relative-caret-position="510">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/core.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Libraries/junit/junit-4.13-beta-3.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Libraries/junit/junit-4.13-beta-3.jar!/org/junit/runner/JUnitCore.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Libraries/junit/junit-4.13-beta-3.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="288" selection-start-line="288" selection-end-line="288" />
+          <folding>
+            <element signature="e#2889#2890#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+            <element signature="e#6952#7087#0" expanded="true" />
+            <element signature="e#7086#7087#0" expanded="true" />
+            <element signature="e#7193#7441#0" expanded="true" />
+            <element signature="e#7440#7441#0" expanded="true" />
+            <element signature="e#7839#8003#0" expanded="true" />
+            <element signature="e#8002#8003#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Libraries/junit/junit-4.13-beta-3.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/RoadGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="203" column="13" lean-forward="true" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
+          <folding>
+            <element signature="e#3078#3079#0" expanded="true" />
+            <element signature="e#3130#3131#0" expanded="true" />
+            <element signature="e#3610#3611#0" expanded="true" />
+            <element signature="e#3665#3666#0" expanded="true" />
+            <element signature="e#3876#3877#0" expanded="true" />
+            <element signature="e#3931#3932#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/models/TrivialModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Libraries/junit/junit-4.13-beta-3.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/MaxPQ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MaxPQ#1;class#MaxPQ#0" />
+            <element signature="method#add#0;class#MaxPQ#0" />
+            <element signature="method#sink#0;class#MaxPQ#0" />
+            <element signature="method#swim#0;class#MaxPQ#0" />
+            <element signature="method#swap#0;class#MaxPQ#0" />
+            <element signature="method#pop#0;class#MaxPQ#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/move/StackMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/move/PlaceMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/base/move/Move.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#948#949#0" expanded="true" />
             <element signature="e#1001#1002#0" expanded="true" />
@@ -572,51 +919,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/base/Stack.java">
+    <entry file="file://$PROJECT_DIR$/core/src/engine/models/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="204">
+          <caret line="12" column="91" selection-start-line="12" selection-start-column="91" selection-end-line="12" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
           <folding>
-            <element signature="docComment;method#Stack#0;class#Stack#0" />
-            <element signature="method#Stack#0;class#Stack#0" />
-            <element signature="docComment;method#peek#0;class#Stack#0" />
-            <element signature="method#peek#0;class#Stack#0" />
-            <element signature="docComment;method#isEmpty#0;class#Stack#0" />
-            <element signature="docComment;method#tSize#0;class#Stack#0" />
-            <element signature="docComment;method#size#0;class#Stack#0" />
-            <element signature="docComment;method#removeRange#0;class#Stack#0" />
-            <element signature="method#removeRange#0;class#Stack#0" />
-            <element signature="docComment;method#stoneIterator#0;class#Stack#0" />
-            <element signature="method#stoneIterator#0;class#Stack#0" />
-            <element signature="class#StoneIterator#0;class#Stack#0" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/base/Stone.java">
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="169">
+          <caret line="495" column="18" selection-start-line="495" selection-start-column="18" selection-end-line="495" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
           <folding>
-            <element signature="e#539#540#0" expanded="true" />
+            <element signature="docComment;method#Stack#0;class#Stack#0" />
+            <element signature="docComment;method#peek#0;class#Stack#0" />
+            <element signature="docComment;method#isEmpty#0;class#Stack#0" />
+            <element signature="e#1682#1683#0" expanded="true" />
+            <element signature="e#1717#1718#0" expanded="true" />
+            <element signature="docComment;method#size#0;class#Stack#0" />
+            <element signature="e#1966#1967#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="method#removeRange#0;class#Stack#0" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3119#3120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/tests/GenerateMovesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/tests/EngineTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/tests/FiveFiveTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/base/Tak.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="339" column="7" selection-start-line="339" selection-start-column="7" selection-end-line="339" selection-end-column="7" />
+        <state relative-caret-position="493">
+          <caret line="424" selection-start-line="424" selection-end-line="424" />
           <folding>
             <element signature="docComment;class#Tak#0" />
             <element signature="docComment;method#Tak#0;class#Tak#0" />
             <element signature="method#Tak#0;class#Tak#0" />
-            <element signature="docComment;method#copy#0;class#Tak#0" />
-            <element signature="method#Tak#1;class#Tak#0" />
             <element signature="docComment;method#getStackAt#0;class#Tak#0" />
-            <element signature="method#getStackAt#0;class#Tak#0" />
             <element signature="docComment;method#boardSize#0;class#Tak#0" />
+            <element signature="e#3244#3245#0" expanded="true" />
+            <element signature="e#3280#3281#0" expanded="true" />
             <element signature="docComment;method#getCurrentPlayerIndex#0;class#Tak#0" />
+            <element signature="e#3388#3389#0" expanded="true" />
+            <element signature="e#3424#3425#0" expanded="true" />
             <element signature="docComment;method#getCurrentPlayer#0;class#Tak#0" />
             <element signature="docComment;method#isFirstMove#0;class#Tak#0" />
             <element signature="docComment;method#lock#0;class#Tak#0" />
@@ -624,34 +1025,30 @@
             <element signature="docComment;method#getStonePlayer#0;class#Tak#0" />
             <element signature="method#getStonePlayer#0;class#Tak#0" />
             <element signature="docComment;method#isGameOver#0;class#Tak#0" />
+            <element signature="e#4854#4855#0" expanded="true" />
+            <element signature="e#4911#4912#0" expanded="true" />
             <element signature="docComment;method#getGameResult#0;class#Tak#0" />
             <element signature="docComment;method#checkWin#0;class#Tak#0" />
-            <element signature="method#checkWin#0;class#Tak#0" />
             <element signature="docComment;method#isRoadWin#0;class#Tak#0" />
+            <element signature="e#6090#6091#0" expanded="true" />
+            <element signature="e#6131#6132#0" expanded="true" />
             <element signature="docComment;method#isRoadWinG#0;class#Tak#0" />
-            <element signature="method#isRoadWinG#0;class#Tak#0" />
             <element signature="docComment;method#flatStoneWin#0;class#Tak#0" />
             <element signature="method#flatStoneWin#0;class#Tak#0" />
             <element signature="docComment;method#safeExecuteMove#0;class#Tak#0" />
-            <element signature="method#safeExecuteMove#0;class#Tak#0" />
             <element signature="docComment;method#executeMove#0;class#Tak#0" />
-            <element signature="method#executeMove#0;class#Tak#0" />
             <element signature="docComment;method#validateMove#0;class#Tak#0" />
-            <element signature="e#9154#9155#0" expanded="true" />
-            <element signature="e#9216#9217#0" expanded="true" />
             <element signature="docComment;method#validateMove#1;class#Tak#0" />
-            <element signature="method#validateMove#1;class#Tak#0" />
             <element signature="docComment;method#inBounds#0;class#Tak#0" />
+            <element signature="e#10517#10518#0" expanded="true" />
+            <element signature="e#10567#10568#0" expanded="true" />
             <element signature="docComment;method#inBounds#1;class#Tak#0" />
             <element signature="docComment;method#validatePlaceMove#0;class#Tak#0" />
             <element signature="method#validatePlaceMove#0;class#Tak#0" />
             <element signature="docComment;method#validateStackMove#0;class#Tak#0" />
-            <element signature="method#validateStackMove#0;class#Tak#0" />
             <element signature="docComment;method#getRoadGraphString#0;class#Tak#0" />
             <element signature="docComment;method#updateRoadGraph#0;class#Tak#0" />
-            <element signature="method#updateRoadGraph#0;class#Tak#0" />
             <element signature="docComment;class#Player#0;class#Tak#0" />
-            <element signature="class#Player#0;class#Tak#0" />
             <element signature="docComment;method#Player#0;class#Player#0;class#Tak#0" />
             <element signature="method#Player#0;class#Player#0;class#Tak#0" />
             <element signature="docComment;method#Player#1;class#Player#0;class#Tak#0" />
@@ -667,23 +1064,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/models/TakEngineV1.java">
+    <entry file="file://$PROJECT_DIR$/core/src/engine/EngineGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-          <folding>
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/tests/FiveFiveTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        <state relative-caret-position="255">
+          <caret line="21" column="71" lean-forward="true" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -692,82 +1076,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/base/move/MoveFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7905">
-          <caret line="465" column="5" selection-start-line="465" selection-start-column="5" selection-end-line="465" selection-end-column="5" />
+        <state relative-caret-position="279">
+          <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1159#1160#0" expanded="true" />
+            <element signature="e#6541#6542#0" expanded="true" />
+            <element signature="e#6585#6586#0" expanded="true" />
+            <element signature="e#8124#8125#0" expanded="true" />
+            <element signature="e#8159#8160#0" expanded="true" />
+            <element signature="e#10809#10810#0" expanded="true" />
+            <element signature="e#10852#10853#0" expanded="true" />
+            <element signature="e#16059#16060#0" expanded="true" />
+            <element signature="e#16101#16102#0" expanded="true" />
             <element signature="docComment;class#StackValsCapIterator#0;class#MoveFactory#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/base/move/StackMove.java">
+    <entry file="file://$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/tests/GenerateMovesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/GameTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/EngineLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structures/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structures/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structures/Tuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="23" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        <state relative-caret-position="294">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

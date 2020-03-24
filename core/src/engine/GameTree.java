@@ -4,11 +4,12 @@ import base.Tak;
 import base.move.Move;
 import base.move.MoveFactory;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class GameTree {
+public class GameTree implements Serializable {
 
     public Tak tak;
     private List<GameTree> children;
@@ -34,9 +35,9 @@ public class GameTree {
         childrenGenerator = null;
     }
 
-    public Iterator<GameTree> getChildren() {
+    public Iterator<GameTree> getChildrenIterator() {
         if (children.isEmpty()) {
-            children = new ArrayList<>(20);
+            children = new ArrayList<>();
             return childrenGenerator;
         } else {
             return children.iterator();

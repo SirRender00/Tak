@@ -24,6 +24,12 @@ public class PlaceMove extends Move {
     @Override
     public void action(Tak tak) {
         tak.getStackAt(x, y).addElement(new Stone(tak.getStonePlayer(), type));
+        if (type == Stone.Type.FLAT || type == Stone.Type.STANDING) {
+            tak.getCurrentPlayer().sideStones -= 1;
+        } else {
+            tak.getCurrentPlayer().capStones -= 1;
+        }
+
         tak.updateRoadGraph(x, y);
     }
 }

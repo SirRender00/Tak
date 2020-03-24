@@ -110,6 +110,20 @@ public class FiveFiveTests {
     }
 
     @Test
+    public void roadWinTestHorizontal() throws Tak.TakException {
+        // Simple road connection by placement horizontal
+        Tak tak = new Tak(Tak.GameType.FIVE);
+
+        executeConsecutiveMoves(tak, "a4", "a2", "b2", "b4", "c2", "c4", "d2", "d4");
+        Assert.assertFalse(tak.isGameOver());
+
+        tak.safeExecuteMove(MoveFactory.parseMove("e2"));
+        Assert.assertTrue(tak.isGameOver());
+        Assert.assertEquals(tak.getGameResult(), Tak.GameResult.WHITE);
+        System.out.println(tak.getRoadGraphString());
+    }
+
+    @Test
     public void roadWinTest3() throws Tak.TakException {
         // Moving a stack to make a win for yourself
 
@@ -219,6 +233,16 @@ public class FiveFiveTests {
         for (int i = 0; i < 4; i++) {
             Assert.assertEquals(i % 2, tak.getStackAt(2, 2).get(i + 1).player);
         }
+
+        System.out.println(tak.getRoadGraphString());
+    }
+
+    @Test
+    public void stackMove2() throws Tak.TakException {
+        // cannot place on cap stone
+        Tak tak = new Tak(Tak.GameType.FIVE);
+        executeConsecutiveMoves(tak, "c2", "b3", "Cc1");
+        Assert.assertFalse(tak.validateMove(MoveFactory.parseMove("1c2-1")));
 
         System.out.println(tak.getRoadGraphString());
     }

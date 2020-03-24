@@ -22,8 +22,9 @@ public class Stone {
     /**
      * @return A copy of this stone.
      */
-    public Stone copy() {
-        return new Stone(player, type);
+    public Stone(Stone stone) {
+        type = stone.type;
+        player = stone.player;
     }
 
     /**

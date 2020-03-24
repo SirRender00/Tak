@@ -129,7 +129,7 @@ public class RoadGraph {
      * @return True if there is a path from start to end, False otherwise.
      */
     private boolean isConnected(VirtualNode start, VirtualNode end, int player) {
-        Queue<Integer> toVisit = new ArrayDeque<>(neighborsOf(start));
+        Queue<Integer> toVisit = new ArrayDeque<>(neighborsOf(start, player));
         boolean[] visited = new boolean[size * size];
 
         while (!toVisit.isEmpty()) {
@@ -199,7 +199,7 @@ public class RoadGraph {
         for (Direction dir : Direction.values()) {
             //we avoid checking off the board
             if (n % size == 0 && dir.equals(Direction.LEFT)
-                || n % (size - 1) == 0 && dir.equals(Direction.RIGHT)) {
+                || n % size == (size - 1) && dir.equals(Direction.RIGHT)) {
                 continue;
             }
 
@@ -239,15 +239,15 @@ public class RoadGraph {
      * @return A list of neighbors as specified above, filtering out
      * those that no player owns.
      */
-    private List<Integer> neighborsOf(VirtualNode n) {
-        ArrayList<Integer> result = new ArrayList<>(size);
+    private List<Integer> neighborsOf(VirtualNode n, int player) {
+        ArrayList<Integer> result = new ArrayList<>();
         if (n.equals(LEFT)) {
             result = new ArrayList<>(ALL_LEFT_NODES);
         } else if (n.equals(TOP)) {
             result = new ArrayList<>(ALL_TOP_NODES);
         }
 
-        result.removeIf(i -> vertices[i] == -1);
+        result.removeIf(i -> vertices[i] != player);
 
         return result;
     }

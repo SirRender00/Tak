@@ -386,6 +386,10 @@ public final class MoveFactory {
             n = 0;
             vIter = new StackValsIterator(0, 0, 0);
 
+            if (tak.isFirstMove()) {
+                return;
+            }
+
             prepareStack();
         }
 
@@ -397,25 +401,6 @@ public final class MoveFactory {
                     n = 1;
                 } else { // done with picking up n
                     n += 1;
-
-                    Direction dir = Direction.values()[d];
-                    int stop = lengthToNearestStop(tak, u, v, dir);
-
-                    // if the top stone of the pickup is a cap stone, and
-                    // we got stopped by a piece (not the end of the board), and
-                    // we can reach the piece that stopped us, and
-                    // the piece that stopped us is a standing stone
-                    if (tak.getStackAt(u, v).peek().type.equals(Stone.Type.CAP)
-                            && stop + 1 < tak.boardSize()
-                            && n >= stop + 1
-                            && tak.getStackAt(u + (stop + 1) * dir.dx, v + (stop + 1) * dir.dy)
-                            .peek().type.equals(Stone.Type.STANDING)) {
-                        // special capstone iterator
-                        vIter = new StackValsCapIterator(n, stop);
-                    } else {
-                        vIter = new StackValsIterator(n, stop);
-                    }
-                    continue;
                 }
 
                 if (d == Direction.values().length) {
@@ -428,7 +413,25 @@ public final class MoveFactory {
                     n = 1;
                 }
 
-                vIter = new StackValsIterator(n, lengthToNearestStop(tak, u, v, Direction.values()[d]));
+                // vIter = new StackValsIterator(n, lengthToNearestStop(tak, u, v, Direction.values()[d]));
+                Direction dir = Direction.values()[d];
+                int stop = lengthToNearestStop(tak, u, v, dir);
+
+                // if the top stone of the pickup is a cap stone, and
+                // we got stopped by a piece (not the end of the board), and
+                // we can reach the piece that stopped us, and
+                // the piece that stopped us is a standing stone
+                if (tak.getStackAt(u, v).peek().type.equals(Stone.Type.CAP)
+                        && stop + 1 < tak.boardSize()
+                        && n >= stop + 1
+                        && tak.inBounds(u + (stop + 1) * dir.dx, v + (stop + 1) * dir.dy)
+                        && tak.getStackAt(u + (stop + 1) * dir.dx, v + (stop + 1) * dir.dy)
+                        .peek().type.equals(Stone.Type.STANDING)) {
+                    // special capstone iterator
+                    vIter = new StackValsCapIterator(n, stop);
+                } else {
+                    vIter = new StackValsIterator(n, stop);
+                }
             }
             stackHasNext = true;
         }
@@ -447,6 +450,8 @@ public final class MoveFactory {
                         return true;
                     }
                 }
+
+                v = -1; // reset v
             }
 
             return false;
@@ -484,7 +489,7 @@ public final class MoveFactory {
         int n;
 
         /**
-         * Iterates through all possible splitting of a stack of boardSize {@code n}
+         * Iterates through all possible splitting of a stack of size {@code n}
          * for splits ranging from {@code minSpaces} to {@code spaces} (inclusive).
          * (Default for {@code minSpaces} is 1.) This constructor is exactly the same
          * as calling {@code StackValsIterator(n, 1, spaces)}.
@@ -642,7 +647,7 @@ public final class MoveFactory {
             super(n, space); // the regular iterator
 
             if (space == 0) { // we can only move the cap stone to flatten the stone
-                specialIter = new StackValsIterator(1, 1);
+                specialIter = Collections.singleton(new int[]{}).iterator();
             } else if (n > 1) {
                 specialIter = new StackValsIterator(n - 1, space, space);
             }

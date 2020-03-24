@@ -37,18 +37,20 @@ public class StackMove extends Move {
         int transX = x;
         int transY = y;
 
-        for (int val : vals) {
+        for (int i = 0; i < vals.length; i++) {
             transX += dir.dx;
             transY += dir.dy;
 
-            for (int j = 0; j < val; j++) {
+            if (i == vals.length - 1) {
+                tak.getStackAt(transX, transY).peek().flatten();
+            }
+
+            for (int j = 0; j < vals[i]; j++) {
                 tak.getStackAt(transX, transY).add(trans.next());
             }
 
             tak.updateRoadGraph(transX, transY);
         }
-
-        tak.getStackAt(transX, transY).peek().flatten();
 
         tak.getStackAt(x, y).removeRange(tak.getStackAt(x, y).tSize() - pickup, tak.getStackAt(x, y).tSize());
         tak.updateRoadGraph(x, y);

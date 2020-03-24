@@ -103,4 +103,50 @@ public class GenerateMovesTest {
 
         Assert.assertEquals(40, stackCount);
     }
+
+    @Test
+    public void stackMoveGen2() throws Tak.TakException {
+        // should not generate stack move onto capstone
+        Tak tak = new Tak(Tak.GameType.FIVE);
+        executeConsecutiveMoves(tak, "c2", "b3", "Cc1");
+
+        for (Move m : MoveFactory.allPossibleMoves(tak)) {
+            System.out.println(m);
+            Assert.assertNotEquals("1c2-1", m.toString());
+        }
+    }
+
+    @Test
+    public void stackMoveGen3() throws Tak.TakException {
+        // should be able to generate stack move onto standing stone with a capstone
+        Tak tak = new Tak(Tak.GameType.FIVE);
+        executeConsecutiveMoves(tak, "c2", "b3", "Cc1", "Sb1");
+
+        boolean seen = false;
+        for (Move m : MoveFactory.allPossibleMoves(tak)) {
+            if (m.toString().equals("1c1<1")) {
+                seen = true;
+            }
+        }
+
+        System.out.println(tak.getRoadGraphString());
+        Assert.assertTrue(seen);
+    }
+
+    @Test
+    public void stackMoveGen4() throws Tak.TakException {
+        // should not be able to generate stack move onto a standing stone
+        Tak tak = new Tak(Tak.GameType.FIVE);
+        executeConsecutiveMoves(tak, "c2", "b3", "Sb2", "c3");
+
+        boolean seen = false;
+        for (Move m : MoveFactory.allPossibleMoves(tak)) {
+            if (m.toString().equals("1b3-1")) {
+                seen = true;
+            }
+        }
+
+        System.out.println(tak.getRoadGraphString());
+        Assert.assertFalse(seen);
+    }
 }

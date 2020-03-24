@@ -9,7 +9,7 @@ import java.util.ConcurrentModificationException;
 
 /**
  * The main class that represents a full Tak game. Instantiate this
- * class with a {@link GameType} which is designated by board boardSize
+ * class with a {@link GameType} which is designated by board size
  * (default is five by five). The game progresses by passing in a {@link Move}
  * to {@code Tak.safeExecuteMove(...)} (or {@code Tak.executeMove(...)} to
  * turn off validity checks). Once the game has reached an end condition --
@@ -63,7 +63,7 @@ public class Tak {
         board = new Stack[gameType.size][gameType.size];
         for (int i = 0; i < gameType.size; i++) {
             for (int j = 0; j < gameType.size; j++) {
-                board[i][j] = other.board[i][j].copy();
+                board[i][j] = new Stack(other.board[i][j]);
             }
         }
 
@@ -74,7 +74,7 @@ public class Tak {
         roadGraph = new RoadGraph(other.roadGraph);
 
         result = other.result;
-        isLocked = other.isLocked;
+        isLocked = false;
     }
 
     /**
@@ -279,8 +279,9 @@ public class Tak {
             move.action(this);
         }
 
+        currentPlayer = 1 - currentPlayer;
         switch (checkWin()) {
-            case -1: currentPlayer = 1 - currentPlayer; break;
+            case -1: break;
             case 0: result = GameResult.WHITE; break;
             case 1: result = GameResult.BLACK; break;
             case 2: result = GameResult.TIE; break;
@@ -289,8 +290,8 @@ public class Tak {
 
     /**
      * @param move The move to validate
-     * @return False if the move is invalid for any reason
-     * (not the players turn to play, invalid move), true otherwise
+     * @return {@code false} if the move is invalid for any reason
+     * (not the players turn to play, invalid move), {@code true} otherwise
      */
     public boolean validateMove(Move move) {
         return validateMove(move, new StringBuilder());
@@ -300,8 +301,8 @@ public class Tak {
      * @param move The move to validate
      * @param message An empty message container that will contain specific
      *                error messages if this method returns false.
-     * @return False if the move is invalid for any reason
-     * (not the players turn to play, invalid move), true otherwise
+     * @return {@code false} if the move is invalid for any reason
+     * (not the players turn to play, invalid move, etc.), {@code true} otherwise
      */
     private boolean validateMove(Move move, StringBuilder message) {
         if (!inBounds(move.x, move.y)) {
@@ -458,7 +459,7 @@ public class Tak {
      * @param y The y coord of the stack
      */
     public void updateRoadGraph(int x, int y) {
-        if (getStackAt(x, y).peek().type.equals(Stone.Type.FLAT)) {
+        if (getStackAt(x, y).peek().type.equals(Stone.Type.FLAT) || getStackAt(x, y).peek().type.equals(Stone.Type.CAP)) {
             roadGraph.updateVertex(x, y, getStackAt(x, y).peek().player);
         } else {
             roadGraph.updateVertex(x, y, -1);
@@ -470,8 +471,8 @@ public class Tak {
      * (Side stones are stones that can be flat or standing.)
      */
     public static class Player {
-        private int sideStones;
-        private int capStones;
+        public int sideStones;
+        public int capStones;
 
         /**
          * @param sideStones Side stone amount

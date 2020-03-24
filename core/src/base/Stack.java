@@ -22,15 +22,10 @@ public class Stack extends Vector<Stone> {
         add(new Stone(-1, Stone.Type.FLAT));
     }
 
-    /**
-     * @return a copy of this Stack
-     */
-    public Stack copy() {
-        Stack copy = new Stack(capacity(), capacityIncrement);
-        for (Stone stone : this) {
-            copy.add(stone.copy());
+    public Stack(Stack stack) {
+        for (Stone stone : stack) {
+            add(new Stone(stone));
         }
-        return copy;
     }
 
     /**
@@ -55,7 +50,7 @@ public class Stack extends Vector<Stone> {
      */
     @Override
     public boolean isEmpty() {
-        return size() == 0;
+        return this.size() == 0;
     }
 
     /**
@@ -76,7 +71,7 @@ public class Stack extends Vector<Stone> {
      */
     @Override
     public int size() {
-        return tSize() - 1;
+        return this.tSize() - 1;
     }
 
     /**
@@ -103,27 +98,46 @@ public class Stack extends Vector<Stone> {
      * @throws IllegalArgumentException if n > <code>size()</code>.
      */
     public Iterator<Stone> stoneIterator(int n) {
+        return stoneIterator(n, false);
+    }
+
+    public Iterator<Stone> stoneIterator(int n, boolean reversed) {
         if (n > size()) {
             throw new IllegalArgumentException("Not enough player stones to iterate over.");
         }
-        return new StoneIterator(tSize() - n);
+
+        return new StoneIterator(n, reversed);
     }
 
     private class StoneIterator implements Iterator<Stone> {
         int n;
+        boolean reversed;
 
-        StoneIterator(int n) {
-            this.n = n;
+        StoneIterator(int n, boolean reversed) {
+            if (reversed) {
+                this.n = tSize() - 1;
+            } else {
+                this.n = tSize() - n;
+            }
+            this.reversed = reversed;
         }
 
         @Override
         public boolean hasNext() {
-            return n < tSize();
+            if (reversed) {
+                return n > 0;
+            } else {
+                return n < tSize();
+            }
         }
 
         @Override
         public Stone next() {
-            return elementAt(n++);
+            if (reversed) {
+                return elementAt(n--);
+            } else {
+                return elementAt(n++);
+            }
         }
     }
 
