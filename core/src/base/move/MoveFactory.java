@@ -302,6 +302,10 @@ public final class MoveFactory {
                 }
             }
 
+            if (posStones.isEmpty()) {
+                return;
+            }
+
             // see prepareNextPlace() and next() to see why we initialize like this
             x = 0;
             y = -1;
