@@ -5,7 +5,8 @@ import java.util.Comparator;
 import java.util.EmptyStackException;
 import java.util.List;
 
-import static structures.Utilities.min;
+import static java.lang.Integer.min;
+
 
 /**
  * A PriorityQueue that orders elements of type <code>T</code> by maximum.
