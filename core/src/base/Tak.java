@@ -230,10 +230,10 @@ public class Tak {
             }
         }
 
-        if (result > 0) {
-            return 1;
-        } else if (result < 0) {
+        if (result < 0) {
             return 0;
+        } else if (result > 0) {
+            return 1;
         } else {
             return 2;
         }
@@ -279,9 +279,8 @@ public class Tak {
             move.action(this);
         }
 
-        currentPlayer = 1 - currentPlayer;
         switch (checkWin()) {
-            case -1: break;
+            case -1: currentPlayer = 1 - currentPlayer; break;
             case 0: result = GameResult.WHITE; break;
             case 1: result = GameResult.BLACK; break;
             case 2: result = GameResult.TIE; break;
@@ -520,7 +519,8 @@ public class Tak {
         /**
          * 5x5 board with 21 side stones and 1 cap stone.
          */
-        FIVE(21, 1, 5);
+        FIVE(21, 1, 5),
+        SIX(30, 1, 6);
 
         int sideStones;
         int capStones;
