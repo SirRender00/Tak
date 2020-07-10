@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e50ef991-4097-460a-88a1-416a325e4673" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthPruneEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/base/Tak.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/Tak.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/engine/EngineGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/engine/EngineGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/engine/engines/BestSearchEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structures/MaxPQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structures/MaxPQ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structures/Utilities.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$GameType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$GameType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak$Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak$Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/base/Tak.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/Tak.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$PlaceMoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$PlaceMoveIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackMoveIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackMoveIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsCapIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsCapIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/base/move/MoveFactory$StackValsIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/engine/EngineGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/EngineGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/engine/engines/MinMaxDepthEngine.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/core/engine/models/ExperimentalHeuristic1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/engine/models/ExperimentalHeuristic1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/structures/MaxPQ.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/core/structures/MaxPQ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core/structures/Utilities.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/core/META-INF/core.kotlin_module" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,99 +24,41 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/engine/EngineGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="230">
+              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/base/KeyboardGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="32" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthPruneEngine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2838#2839#0" expanded="true" />
-                <element signature="e#2873#2874#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/engine/engines/BestSearchEngine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="-17">
+              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding>
-                <element signature="e#595#596#0" expanded="true" />
-                <element signature="e#629#630#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/base/Tak.java">
+        <entry file="file://$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7174">
-              <caret line="521" column="20" selection-start-line="521" selection-start-column="20" selection-end-line="521" selection-end-column="20" />
+            <state relative-caret-position="281">
+              <caret line="107" column="60" selection-start-line="107" selection-start-column="60" selection-end-line="107" selection-end-column="60" />
               <folding>
-                <element signature="docComment;class#Tak#0" />
-                <element signature="docComment;method#Tak#0;class#Tak#0" />
-                <element signature="method#Tak#0;class#Tak#0" />
-                <element signature="docComment;method#getStackAt#0;class#Tak#0" />
-                <element signature="docComment;method#boardSize#0;class#Tak#0" />
-                <element signature="e#3244#3245#0" expanded="true" />
-                <element signature="e#3280#3281#0" expanded="true" />
-                <element signature="docComment;method#getCurrentPlayerIndex#0;class#Tak#0" />
-                <element signature="e#3388#3389#0" expanded="true" />
-                <element signature="e#3424#3425#0" expanded="true" />
-                <element signature="docComment;method#getCurrentPlayer#0;class#Tak#0" />
-                <element signature="docComment;method#isFirstMove#0;class#Tak#0" />
-                <element signature="docComment;method#lock#0;class#Tak#0" />
-                <element signature="docComment;method#unlock#0;class#Tak#0" />
-                <element signature="docComment;method#getStonePlayer#0;class#Tak#0" />
-                <element signature="method#getStonePlayer#0;class#Tak#0" />
-                <element signature="docComment;method#isGameOver#0;class#Tak#0" />
-                <element signature="e#4854#4855#0" expanded="true" />
-                <element signature="e#4911#4912#0" expanded="true" />
-                <element signature="docComment;method#getGameResult#0;class#Tak#0" />
-                <element signature="docComment;method#checkWin#0;class#Tak#0" />
-                <element signature="docComment;method#isRoadWin#0;class#Tak#0" />
-                <element signature="e#6090#6091#0" expanded="true" />
-                <element signature="e#6131#6132#0" expanded="true" />
-                <element signature="docComment;method#isRoadWinG#0;class#Tak#0" />
-                <element signature="docComment;method#flatStoneWin#0;class#Tak#0" />
-                <element signature="docComment;class#GameResult#0;class#Tak#0" />
-                <element signature="class#GameResult#0;class#Tak#0" />
-                <element signature="class#TakException#0;class#Tak#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#roads#0;class#ExperimentalHeuristic1#0" />
+                <element signature="method#updateRow#0;class#ExperimentalHeuristic1#0" />
+                <element signature="method#update#0;class#ExperimentalHeuristic1#0" />
               </folding>
             </state>
           </provider>
@@ -156,7 +86,6 @@
       <find>clone</find>
       <find>iterator</find>
       <find>size()</find>
-      <find>GameType</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,6 +100,7 @@
         <option value="$PROJECT_DIR$/core/src/engine/TakEngineV1.java" />
         <option value="$PROJECT_DIR$/core/src/structures/Tuple.java" />
         <option value="$PROJECT_DIR$/core/src/engine/GameTreeHandler.java" />
+        <option value="$PROJECT_DIR$/core/src/structures/MaxPQ.java" />
         <option value="$PROJECT_DIR$/core/src/engine/Engine.java" />
         <option value="$PROJECT_DIR$/core/src/engine/engines/BasicEngine.java" />
         <option value="$PROJECT_DIR$/core/src/engine/models/Model.java" />
@@ -185,16 +115,13 @@
         <option value="$PROJECT_DIR$/core/tests/GenerateMovesTest.java" />
         <option value="$PROJECT_DIR$/core/src/base/move/StackMove.java" />
         <option value="$PROJECT_DIR$/core/tests/EngineTests.java" />
+        <option value="$PROJECT_DIR$/core/src/structures/Utilities.java" />
         <option value="$PROJECT_DIR$/core/src/base/Stack.java" />
         <option value="$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java" />
-        <option value="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" />
-        <option value="$PROJECT_DIR$/core/src/engine/engines/BestSearchEngine.java" />
-        <option value="$PROJECT_DIR$/core/src/structures/Utilities.java" />
-        <option value="$PROJECT_DIR$/core/src/structures/MaxPQ.java" />
-        <option value="$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthPruneEngine.java" />
-        <option value="$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java" />
         <option value="$PROJECT_DIR$/core/src/base/Tak.java" />
+        <option value="$PROJECT_DIR$/core/src/base/move/MoveFactory.java" />
         <option value="$PROJECT_DIR$/core/src/engine/EngineGame.java" />
+        <option value="$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java" />
       </list>
     </option>
   </component>
@@ -212,8 +139,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="245" />
-    <option name="y" value="55" />
+    <option name="x" value="290" />
+    <option name="y" value="-15" />
     <option name="width" value="1755" />
     <option name="height" value="985" />
   </component>
@@ -224,7 +151,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,6 +199,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -291,7 +218,6 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="engine.engines" />
       <recent name="engine.models" />
       <recent name="" />
     </key>
@@ -436,9 +362,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26545843" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -446,8 +372,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.36685553" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29036826" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3672806" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22751896" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.16251354" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -456,7 +382,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.20254958" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.20368364" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -591,6 +517,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/engine/TakEngineV1.java" />
     <entry file="file://$PROJECT_DIR$/core/src/engine/EngineLoader.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Comparators.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -636,6 +569,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/KeyboardGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -723,6 +663,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/MaxPQ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MaxPQ#1;class#MaxPQ#0" />
+            <element signature="method#add#0;class#MaxPQ#0" />
+            <element signature="method#sink#0;class#MaxPQ#0" />
+            <element signature="method#swim#0;class#MaxPQ#0" />
+            <element signature="method#swap#0;class#MaxPQ#0" />
+            <element signature="method#pop#0;class#MaxPQ#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/base/move/StackMove.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -737,6 +693,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structures/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/base/move/Move.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -745,6 +708,13 @@
             <element signature="e#948#949#0" expanded="true" />
             <element signature="e#1001#1002#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/engine/models/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="91" selection-start-line="12" selection-start-column="91" selection-end-line="12" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -781,6 +751,65 @@
           <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/base/Tak.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="88" column="18" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
+          <folding>
+            <element signature="docComment;class#Tak#0" />
+            <element signature="docComment;method#Tak#0;class#Tak#0" />
+            <element signature="method#Tak#0;class#Tak#0" />
+            <element signature="docComment;method#getStackAt#0;class#Tak#0" />
+            <element signature="docComment;method#boardSize#0;class#Tak#0" />
+            <element signature="e#3244#3245#0" expanded="true" />
+            <element signature="e#3280#3281#0" expanded="true" />
+            <element signature="docComment;method#getCurrentPlayerIndex#0;class#Tak#0" />
+            <element signature="e#3388#3389#0" expanded="true" />
+            <element signature="e#3424#3425#0" expanded="true" />
+            <element signature="docComment;method#getCurrentPlayer#0;class#Tak#0" />
+            <element signature="docComment;method#isFirstMove#0;class#Tak#0" />
+            <element signature="docComment;method#lock#0;class#Tak#0" />
+            <element signature="docComment;method#unlock#0;class#Tak#0" />
+            <element signature="docComment;method#getStonePlayer#0;class#Tak#0" />
+            <element signature="method#getStonePlayer#0;class#Tak#0" />
+            <element signature="docComment;method#isGameOver#0;class#Tak#0" />
+            <element signature="e#4854#4855#0" expanded="true" />
+            <element signature="e#4911#4912#0" expanded="true" />
+            <element signature="docComment;method#getGameResult#0;class#Tak#0" />
+            <element signature="docComment;method#checkWin#0;class#Tak#0" />
+            <element signature="docComment;method#isRoadWin#0;class#Tak#0" />
+            <element signature="e#6090#6091#0" expanded="true" />
+            <element signature="e#6131#6132#0" expanded="true" />
+            <element signature="docComment;method#isRoadWinG#0;class#Tak#0" />
+            <element signature="docComment;method#flatStoneWin#0;class#Tak#0" />
+            <element signature="method#flatStoneWin#0;class#Tak#0" />
+            <element signature="docComment;method#safeExecuteMove#0;class#Tak#0" />
+            <element signature="docComment;method#executeMove#0;class#Tak#0" />
+            <element signature="docComment;method#validateMove#0;class#Tak#0" />
+            <element signature="docComment;method#validateMove#1;class#Tak#0" />
+            <element signature="docComment;method#inBounds#0;class#Tak#0" />
+            <element signature="docComment;method#inBounds#1;class#Tak#0" />
+            <element signature="docComment;method#validatePlaceMove#0;class#Tak#0" />
+            <element signature="method#validatePlaceMove#0;class#Tak#0" />
+            <element signature="docComment;method#validateStackMove#0;class#Tak#0" />
+            <element signature="docComment;method#getRoadGraphString#0;class#Tak#0" />
+            <element signature="docComment;method#updateRoadGraph#0;class#Tak#0" />
+            <element signature="docComment;class#Player#0;class#Tak#0" />
+            <element signature="docComment;method#Player#0;class#Player#0;class#Tak#0" />
+            <element signature="method#Player#0;class#Player#0;class#Tak#0" />
+            <element signature="docComment;method#Player#1;class#Player#0;class#Tak#0" />
+            <element signature="method#Player#1;class#Player#0;class#Tak#0" />
+            <element signature="docComment;method#getRemainingStones#0;class#Player#0;class#Tak#0" />
+            <element signature="method#getRemainingStones#0;class#Player#0;class#Tak#0" />
+            <element signature="docComment;class#GameType#0;class#Tak#0" />
+            <element signature="class#GameType#0;class#Tak#0" />
+            <element signature="docComment;class#GameResult#0;class#Tak#0" />
+            <element signature="class#GameResult#0;class#Tak#0" />
+            <element signature="class#TakException#0;class#Tak#0" />
           </folding>
         </state>
       </provider>
@@ -832,120 +861,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/engine/models/Model.java">
+    <entry file="file://$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structures/Utilities.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/structures/Tuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structures/MaxPQ.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="113" column="20" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
+        <state relative-caret-position="281">
+          <caret line="107" column="60" selection-start-line="107" selection-start-column="60" selection-end-line="107" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#MaxPQ#1;class#MaxPQ#0" />
-            <element signature="method#add#0;class#MaxPQ#0" />
-            <element signature="method#sink#0;class#MaxPQ#0" />
-            <element signature="method#swim#0;class#MaxPQ#0" />
-            <element signature="method#swap#0;class#MaxPQ#0" />
-            <element signature="method#pop#0;class#MaxPQ#0" />
+            <element signature="method#roads#0;class#ExperimentalHeuristic1#0" />
+            <element signature="method#updateRow#0;class#ExperimentalHeuristic1#0" />
+            <element signature="method#update#0;class#ExperimentalHeuristic1#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/engine/EngineGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="230">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/base/KeyboardGame.java">
+    <entry file="file://$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/engines/MinMaxDepthPruneEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+        <state relative-caret-position="-17">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2838#2839#0" expanded="true" />
-            <element signature="e#2873#2874#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/engines/BestSearchEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/base/Tak.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7174">
-          <caret line="521" column="20" selection-start-line="521" selection-start-column="20" selection-end-line="521" selection-end-column="20" />
-          <folding>
-            <element signature="docComment;class#Tak#0" />
-            <element signature="docComment;method#Tak#0;class#Tak#0" />
-            <element signature="method#Tak#0;class#Tak#0" />
-            <element signature="docComment;method#getStackAt#0;class#Tak#0" />
-            <element signature="docComment;method#boardSize#0;class#Tak#0" />
-            <element signature="e#3244#3245#0" expanded="true" />
-            <element signature="e#3280#3281#0" expanded="true" />
-            <element signature="docComment;method#getCurrentPlayerIndex#0;class#Tak#0" />
-            <element signature="e#3388#3389#0" expanded="true" />
-            <element signature="e#3424#3425#0" expanded="true" />
-            <element signature="docComment;method#getCurrentPlayer#0;class#Tak#0" />
-            <element signature="docComment;method#isFirstMove#0;class#Tak#0" />
-            <element signature="docComment;method#lock#0;class#Tak#0" />
-            <element signature="docComment;method#unlock#0;class#Tak#0" />
-            <element signature="docComment;method#getStonePlayer#0;class#Tak#0" />
-            <element signature="method#getStonePlayer#0;class#Tak#0" />
-            <element signature="docComment;method#isGameOver#0;class#Tak#0" />
-            <element signature="e#4854#4855#0" expanded="true" />
-            <element signature="e#4911#4912#0" expanded="true" />
-            <element signature="docComment;method#getGameResult#0;class#Tak#0" />
-            <element signature="docComment;method#checkWin#0;class#Tak#0" />
-            <element signature="docComment;method#isRoadWin#0;class#Tak#0" />
-            <element signature="e#6090#6091#0" expanded="true" />
-            <element signature="e#6131#6132#0" expanded="true" />
-            <element signature="docComment;method#isRoadWinG#0;class#Tak#0" />
-            <element signature="docComment;method#flatStoneWin#0;class#Tak#0" />
-            <element signature="docComment;class#GameResult#0;class#Tak#0" />
-            <element signature="class#GameResult#0;class#Tak#0" />
-            <element signature="class#TakException#0;class#Tak#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/engine/models/ExperimentalHeuristic1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
         </state>
       </provider>
     </entry>

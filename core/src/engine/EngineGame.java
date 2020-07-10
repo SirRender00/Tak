@@ -3,7 +3,7 @@ package engine;
 import base.Tak;
 import base.move.Move;
 import base.move.MoveFactory;
-import engine.engines.MinMaxDepthEngine;
+import engine.engines.MinMaxDepthPruneEngine;
 import engine.models.ExperimentalHeuristic1;
 import structures.Tuple;
 
@@ -18,15 +18,14 @@ public class EngineGame {
     }
 
     public static void main(String[] args) throws Tak.TakException {
-        Tak tak = new Tak(Tak.GameType.FIVE);
-        executeConsecutiveMoves(tak, "b1", "a1", "a2", "b2", "a3", "b3");
+        Tak tak = new Tak(Tak.GameType.SIX);
 
-        Engine engine = new MinMaxDepthEngine(new ExperimentalHeuristic1(), 2);
+        Engine engine = new MinMaxDepthPruneEngine(new ExperimentalHeuristic1(), 2);
 
         Scanner scanner = new Scanner(System.in);
 
         while (!tak.isGameOver()) {
-            if (tak.getCurrentPlayerIndex() == 0) {
+            if (tak.getCurrentPlayerIndex() == 1) {
                 if (scanner.hasNextLine()) {
                     String msg = scanner.nextLine();
 
@@ -44,7 +43,9 @@ public class EngineGame {
                         System.out.println(e.getMessage());
                     }
                 }
-            } else {
+            }
+
+            else {
                 try {
                     engine.solve(tak, 0, 0);
                 } catch (InterruptedException e) {
@@ -56,9 +57,12 @@ public class EngineGame {
                 tak.executeMove(best.one);
             }
 
-            System.out.println(tak.getRoadGraphString() + "\n");
+            if (tak.getCurrentPlayerIndex() == 0) {
+                System.out.println();
+            }
         }
 
         System.out.println("Game over! " + tak.getGameResult().getMessage());
+        System.out.println(tak.getRoadGraphString());
     }
 }
